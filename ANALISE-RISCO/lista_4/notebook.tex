@@ -289,10 +289,15 @@ Brenda Santos\\
 Ronilson Pinho
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}41}]:} \PY{k+kn}{library}\PY{p}{(}triangle\PY{p}{)}
-         \PY{k+kp}{set.seed}\PY{p}{(}\PY{l+m}{1}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}2}]:} \PY{k+kn}{library}\PY{p}{(}triangle\PY{p}{)}
+        \PY{k+kp}{set.seed}\PY{p}{(}\PY{l+m}{1}\PY{p}{)}
 \end{Verbatim}
 
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Warning message:
+"package 'triangle' was built under R version 3.3.3"
+    \end{Verbatim}
 
     \begin{enumerate}
 \def\labelenumi{\arabic{enumi})}
@@ -307,14 +312,14 @@ Ronilson Pinho
 1 - simulando gastos individuais para cada um dos 20 taxis da frota
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}42}]:} frota1 \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
-         \PY{k+kr}{for} \PY{p}{(}i \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{3000}\PY{p}{)}\PY{p}{\PYZob{}}
-             litros \PY{o}{\PYZlt{}\PYZhy{}} rtriangle\PY{p}{(}\PY{l+m}{20}\PY{p}{,}\PY{l+m}{40}\PY{p}{,}\PY{l+m}{60}\PY{p}{,}\PY{l+m}{58}\PY{p}{)}
-             preco \PY{o}{\PYZlt{}\PYZhy{}} rtriangle\PY{p}{(}\PY{l+m}{20}\PY{p}{,}\PY{l+m}{3.1}\PY{p}{,}\PY{l+m}{4.0}\PY{p}{,}\PY{l+m}{3.8}\PY{p}{)}
-             frota1 \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}frota1\PY{p}{,}\PY{k+kp}{sum}\PY{p}{(}litros \PY{o}{*} preco\PY{p}{)}\PY{p}{)}
-         \PY{p}{\PYZcb{}}
-         \PY{k+kp}{mean}\PY{p}{(}frota1\PY{p}{)}
-         hist\PY{p}{(}frota1\PY{p}{)}
+{\color{incolor}In [{\color{incolor}3}]:} frota1 \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
+        \PY{k+kr}{for} \PY{p}{(}i \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{3000}\PY{p}{)}\PY{p}{\PYZob{}}
+            litros \PY{o}{\PYZlt{}\PYZhy{}} rtriangle\PY{p}{(}\PY{l+m}{20}\PY{p}{,}\PY{l+m}{40}\PY{p}{,}\PY{l+m}{60}\PY{p}{,}\PY{l+m}{58}\PY{p}{)}
+            preco \PY{o}{\PYZlt{}\PYZhy{}} rtriangle\PY{p}{(}\PY{l+m}{20}\PY{p}{,}\PY{l+m}{3.1}\PY{p}{,}\PY{l+m}{4.0}\PY{p}{,}\PY{l+m}{3.8}\PY{p}{)}
+            frota1 \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}frota1\PY{p}{,}\PY{k+kp}{sum}\PY{p}{(}litros \PY{o}{*} preco\PY{p}{)}\PY{p}{)}
+        \PY{p}{\PYZcb{}}
+        \PY{k+kp}{mean}\PY{p}{(}frota1\PY{p}{)}
+        hist\PY{p}{(}frota1\PY{p}{)}
 \end{Verbatim}
 
 
@@ -586,7 +591,7 @@ meses do ano possuem 30 dias úteis e que os valores serão descontados
 mensalmente pela taxa Selic.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} lucro\PYZus{}ano \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}4}]:} lucro\PYZus{}ano \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
         \PY{k+kr}{for} \PY{p}{(}i \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{10000}\PY{p}{)}\PY{p}{\PYZob{}}
             lucro \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
             \PY{k+kr}{for} \PY{p}{(}mes \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{12}\PY{p}{)}\PY{p}{\PYZob{}}
@@ -594,7 +599,7 @@ mensalmente pela taxa Selic.
                 grupos \PY{o}{\PYZlt{}\PYZhy{}} rtriangle\PY{p}{(}\PY{l+m}{30}\PY{p}{,}\PY{l+m}{40}\PY{p}{,}\PY{l+m}{120}\PY{p}{,}\PY{l+m}{60}\PY{p}{)}
                 fat\PYZus{}mesa \PY{o}{\PYZlt{}\PYZhy{}} por\PYZus{}mesa \PY{o}{*} grupos
                 lucro\PYZus{}mes \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{sum}\PY{p}{(}rtriangle\PY{p}{(}\PY{l+m}{30}\PY{p}{,}\PY{l+m}{.15}\PY{p}{,}\PY{l+m}{.30}\PY{p}{,}\PY{l+m}{.22}\PY{p}{)} \PY{o}{*} fat\PYZus{}mesa\PY{p}{)}
-                lucro \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}lucro\PY{p}{,}lucro\PYZus{}mes \PY{o}{/} \PY{p}{(}\PY{p}{(}\PY{l+m}{1} \PY{o}{+} \PY{l+m}{.065}\PY{o}{/}\PY{l+m}{12}\PY{p}{)}\PY{o}{\PYZca{}}j\PY{p}{)}\PY{p}{)}
+                lucro \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}lucro\PY{p}{,}lucro\PYZus{}mes \PY{o}{/} \PY{p}{(}\PY{p}{(}\PY{l+m}{1} \PY{o}{+} \PY{l+m}{.065}\PY{o}{/}\PY{l+m}{12}\PY{p}{)}\PY{o}{\PYZca{}}mes\PY{p}{)}\PY{p}{)}
             \PY{p}{\PYZcb{}}
             lucro\PYZus{}ano \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}lucro\PYZus{}ano\PY{p}{,}\PY{k+kp}{sum}\PY{p}{(}lucro\PY{p}{)}\PY{p}{)}
         \PY{p}{\PYZcb{}}
@@ -604,6 +609,17 @@ mensalmente pela taxa Selic.
 \end{Verbatim}
 
 
+    891983.392557205
+
+    
+    16634.3706895236
+
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_20_2.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
 
     % Add a bibliography block to the postdoc
     

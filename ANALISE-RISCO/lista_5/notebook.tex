@@ -1,0 +1,914 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass[11pt]{article}
+
+    
+    
+    \usepackage[T1]{fontenc}
+    % Nicer default font (+ math font) than Computer Modern for most use cases
+    \usepackage{mathpazo}
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % We will generate all images so they have a width \maxwidth. This means
+    % that they will get their normal width if they fit onto the page, but
+    % are scaled down if they would overflow the margins.
+    \makeatletter
+    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+    \else\Gin@nat@width\fi}
+    \makeatother
+    \let\Oldincludegraphics\includegraphics
+    % Set max figure width to be 80% of text width, for now hardcoded.
+    \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionLabelFormat{nolabel}{}
+    \captionsetup{labelformat=nolabel}
+
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    
+
+    
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{lista\_5}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    MAI 103: Análise de Risco // Prof. Eber\\
+Lista 05 // Data: 10/07/2018 // Entrega: 17/07/2018\\
+Luis Filipe Kopp
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}77}]:} \PY{k+kp}{set.seed}\PY{p}{(}\PY{l+m}{1}\PY{p}{)}
+         \PY{k+kn}{library}\PY{p}{(}triangle\PY{p}{)}
+         \PY{k+kn}{library}\PY{p}{(}igraph\PY{p}{)}
+         \PY{k+kn}{library}\PY{p}{(}hexbin\PY{p}{)}
+         \PY{k+kn}{library}\PY{p}{(}ggplot2\PY{p}{)}
+\end{Verbatim}
+
+
+    1-Usando MC na rede descrita nas tabelas 1 e 2, obtenha:
+
+    \begin{longtable}[]{@{}llll@{}}
+\toprule
+ativ & Min & Mprov & Max\tabularnewline
+\midrule
+\endhead
+A & 1 & 2 & 4\tabularnewline
+B & 5 & 6 & 7\tabularnewline
+C & 2 & 4 & 5\tabularnewline
+D & 1 & 3 & 4\tabularnewline
+E & 4 & 5 & 7\tabularnewline
+F & 3 & 4 & 5\tabularnewline
+G & 1 & 2 & 3\tabularnewline
+\bottomrule
+\end{longtable}
+
+Tabela 1 - Atvidades
+
+    (start - A B C) (A - F D) (B - G) (C - E) (D - G) (E - G) (F - end) (G -
+end)\\
+Tabela 2 - Redes
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}85}]:} g1 \PY{o}{\PYZlt{}\PYZhy{}} graph\PY{p}{(}edges\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{start\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{a\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{start\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{b\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{start\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{c\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{c\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{e\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{a\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{f\PYZsq{}}\PY{p}{,}
+                              \PY{l+s}{\PYZsq{}}\PY{l+s}{a\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{d\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{f\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{end\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{g\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{end\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{b\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{g\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{e\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{g\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{d\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{g\PYZsq{}}\PY{p}{)} \PY{p}{)}
+         plot\PY{p}{(}g1\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_5_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    • Uma aproximação empírica para a duração do projeto mostrado.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}2}]:} resposta\PYZus{}final \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
+        ant \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
+        
+        simula \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kr}{function}\PY{p}{(}p\PY{p}{)}\PY{p}{\PYZob{}}
+        resposta \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
+        
+        n \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{length}\PY{p}{(}p\PY{p}{)}
+        procura\PYZus{}caminho \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kr}{function}\PY{p}{(}p\PY{p}{,}node\PY{p}{,}anterior\PY{p}{,}tempo\PY{p}{)}\PY{p}{\PYZob{}}
+            \PY{k+kr}{if}\PY{p}{(}node \PY{o}{==} \PY{l+s}{\PYZdq{}}\PY{l+s}{end\PYZdq{}}\PY{p}{)}\PY{p}{\PYZob{}}
+                \PY{k+kr}{if}\PY{p}{(}tempo \PY{o}{\PYZgt{}} \PY{k+kp}{t}\PY{p}{)}\PY{p}{\PYZob{}}
+                    ant \PY{o}{\PYZlt{}\PYZlt{}\PYZhy{}} anterior
+                    t \PY{o}{\PYZlt{}\PYZlt{}\PYZhy{}} tempo
+                \PY{p}{\PYZcb{}}
+                
+                resposta \PY{o}{\PYZlt{}\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}resposta\PY{p}{,}tempo\PY{p}{)}
+        
+            \PY{p}{\PYZcb{}}
+            \PY{k+kp}{else}\PY{p}{\PYZob{}}
+                \PY{k+kr}{for}\PY{p}{(}i \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}n\PY{p}{)}\PY{p}{\PYZob{}}
+                    \PY{k+kr}{if}\PY{p}{(}p\PY{p}{[[}i\PY{p}{]]}\PY{p}{[}\PY{l+m}{1}\PY{p}{]} \PY{o}{==} node\PY{p}{)}\PY{p}{\PYZob{}}  
+                        t \PY{o}{\PYZlt{}\PYZhy{}} tempo \PY{o}{+} \PY{k+kp}{as.numeric}\PY{p}{(}p\PY{p}{[[}i\PY{p}{]]}\PY{p}{[}\PY{l+m}{3}\PY{p}{]}\PY{p}{)}
+                        procura\PYZus{}caminho\PY{p}{(}p\PY{p}{,}p\PY{p}{[[}i\PY{p}{]]}\PY{p}{[}\PY{l+m}{2}\PY{p}{]}\PY{p}{,} \PY{k+kp}{paste}\PY{p}{(}anterior\PY{p}{,}p\PY{p}{[[}i\PY{p}{]]}\PY{p}{[}\PY{l+m}{1}\PY{p}{]}\PY{p}{,}
+                                                           sep \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZhy{}\PYZdq{}}\PY{p}{)}\PY{p}{,} \PY{k+kp}{t}\PY{p}{)}
+                    \PY{p}{\PYZcb{}}
+                \PY{p}{\PYZcb{}}   
+            \PY{p}{\PYZcb{}}
+        
+        \PY{p}{\PYZcb{}}
+        procura\PYZus{}caminho\PY{p}{(}p\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{start\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZdq{}}\PY{p}{,}\PY{l+m}{0}\PY{p}{)}    
+        resposta\PYZus{}final \PY{o}{\PYZlt{}\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}resposta\PYZus{}final\PY{p}{,}\PY{k+kp}{max}\PY{p}{(}resposta\PY{p}{)}\PY{p}{)}
+        \PY{p}{\PYZcb{}}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}39}]:} resposta\PYZus{}final \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
+         caminhos \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
+         t \PY{o}{\PYZlt{}\PYZhy{}} \PY{l+m}{0}
+         precedencia \PY{o}{\PYZlt{}\PYZhy{}}  \PY{k+kt}{list}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{start\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{A\PYZdq{}}\PY{p}{,}\PY{l+m}{2}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{start\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{B\PYZdq{}}\PY{p}{,}\PY{l+m}{6}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{start\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{C\PYZdq{}}\PY{p}{,}\PY{l+m}{4}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{A\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{F\PYZdq{}}\PY{p}{,}\PY{l+m}{4}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{A\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{D\PYZdq{}}\PY{p}{,}\PY{l+m}{3}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{B\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{G\PYZdq{}}\PY{p}{,}\PY{l+m}{2}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{C\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{E\PYZdq{}}\PY{p}{,}\PY{l+m}{5}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{D\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{G\PYZdq{}}\PY{p}{,}\PY{l+m}{2}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{E\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{G\PYZdq{}}\PY{p}{,}\PY{l+m}{2}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{F\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{end\PYZdq{}}\PY{p}{,}\PY{l+m}{0}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{G\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{end\PYZdq{}}\PY{p}{,}\PY{l+m}{0}\PY{p}{)}\PY{p}{)}
+         simula\PY{p}{(}precedencia\PY{p}{)}
+         resposta\PYZus{}final
+         ant
+\end{Verbatim}
+
+
+    11
+
+    
+    '-start-C-E-G'
+
+    
+    • Obtenha um estimativa das probabilidades das atividades pertencerem ao
+caminho crítico
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}65}]:} resposta\PYZus{}final \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
+         caminho \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
+         \PY{k+kr}{for}\PY{p}{(} h \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{10000}\PY{p}{)}\PY{p}{\PYZob{}}
+         precedencia \PY{o}{\PYZlt{}\PYZhy{}}  \PY{k+kt}{list}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{start\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{A\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{4}\PY{p}{,}\PY{l+m}{2}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{start\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{B\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{7}\PY{p}{,}\PY{l+m}{6}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{start\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{C\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{2}\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{4}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{A\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{F\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{4}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{A\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{D\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{4}\PY{p}{,}\PY{l+m}{3}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{B\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{G\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{2}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{C\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{E\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{4}\PY{p}{,}\PY{l+m}{7}\PY{p}{,}\PY{l+m}{5}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{D\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{G\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{2}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{E\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{G\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{2}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{F\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{end\PYZdq{}}\PY{p}{,}\PY{l+m}{0}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{G\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{end\PYZdq{}}\PY{p}{,}\PY{l+m}{0}\PY{p}{)}\PY{p}{)}
+         simula\PY{p}{(}precedencia\PY{p}{)}
+         caminho \PY{o}{\PYZlt{}\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}caminho\PY{p}{,}ant\PY{p}{)}    
+         \PY{p}{\PYZcb{}}
+         barplot\PY{p}{(}\PY{k+kp}{table}\PY{p}{(}caminho\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_10_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    Uma análise empírica sugere que se B estiver perto do máximo (7) e C e E
+estiverem perto do mínimo (2 e 4), o caminho crítico passaria a ser
+start-B-G-end ao invés de start-C-E-G-end, porém rodamos a simulação n
+vezes (para n muito grande) e em mais de 99.9\% não houve troca de
+caminho crítico, por isso podemos assumir como extremamente improvável.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}55}]:} n \PY{o}{\PYZlt{}\PYZhy{}} \PY{l+m}{1000000}
+         \PY{k+kt}{c} \PY{o}{\PYZlt{}\PYZhy{}} rtriangle\PY{p}{(}n\PY{p}{,}\PY{l+m}{2}\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{4}\PY{p}{)} \PY{o}{+} rtriangle\PY{p}{(}n\PY{p}{,}\PY{l+m}{4}\PY{p}{,}\PY{l+m}{7}\PY{p}{,}\PY{l+m}{5}\PY{p}{)} \PY{o}{\PYZhy{}} rtriangle\PY{p}{(}n\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{7}\PY{p}{,}\PY{l+m}{6}\PY{p}{)}
+         \PY{k+kp}{sum}\PY{p}{(}\PY{k+kt}{c}\PY{o}{\PYZgt{}=}\PY{l+m}{0}\PY{p}{)}\PY{o}{/}\PY{k+kp}{length}\PY{p}{(}\PY{k+kt}{c}\PY{p}{)}
+\end{Verbatim}
+
+
+    0.999681
+
+    
+    • Compare o resultado com aquele obtido pela aproximação PERT.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}15}]:} resposta\PYZus{}final \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
+         \PY{k+kr}{for}\PY{p}{(} h \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{10000}\PY{p}{)}\PY{p}{\PYZob{}}
+         precedencia \PY{o}{\PYZlt{}\PYZhy{}}  \PY{k+kt}{list}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{start\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{A\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{4}\PY{p}{,}\PY{l+m}{2}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{start\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{B\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{7}\PY{p}{,}\PY{l+m}{6}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{start\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{C\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{2}\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{4}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{A\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{F\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{4}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{A\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{D\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{4}\PY{p}{,}\PY{l+m}{3}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{B\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{G\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{2}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{C\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{E\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{4}\PY{p}{,}\PY{l+m}{7}\PY{p}{,}\PY{l+m}{5}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{D\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{G\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{2}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{E\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{G\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{2}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{F\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{end\PYZdq{}}\PY{p}{,}\PY{l+m}{0}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{G\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{end\PYZdq{}}\PY{p}{,}\PY{l+m}{0}\PY{p}{)}\PY{p}{)}
+         simula\PY{p}{(}precedencia\PY{p}{)}
+         \PY{p}{\PYZcb{}}
+         \PY{k+kp}{mean}\PY{p}{(}resposta\PYZus{}final\PY{p}{)}
+\end{Verbatim}
+
+
+    11.0002021043627
+
+    
+    Em cerca de 50\% das simulações, o tempo de conclusão foi superior à 11.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}16}]:} plot\PY{p}{(}density\PY{p}{(}resposta\PYZus{}final\PY{p}{)}\PY{p}{,} col\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{red\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_16_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    • Gere todos agendamentos possíveis para o minimo prazo.
+
+    start-B-G-end e start-C-E-G-end
+
+    2- Observe os dados sobre o projeto de uma obra mostrado nas tabela 3.
+Calcule:
+
+    \begin{longtable}[]{@{}lllllllll@{}}
+\toprule
+Atividade & Descrição & Pred & DMin & DMp & DMax & CMin & CMp &
+CMax\tabularnewline
+\midrule
+\endhead
+A & Obter materiais & START & 2 & 4 & 18 & 300 & 450 &
+600\tabularnewline
+B & Obter mão de obra & START & 5 & 9 & 19 & 480 & 600 &
+720\tabularnewline
+C & Escavar & START & 4 & 10 & 28 & 3750 & 4500 & 5250\tabularnewline
+D & Colocar fundação & C & 8 & 13 & 36 & 8400 & 9600 &
+10800\tabularnewline
+E & Construir Estrutura & B,D & 44 & 60 & 100 & 300000 & 312000 &
+322500\tabularnewline
+F & Instalação Hidráulica & E & 30 & 40 & 74 & 37650 & 39600 &
+41400\tabularnewline
+G & Instalação Elétrica & E & 9 & 20 & 43 & 10500 & 11550 &
+12600\tabularnewline
+H & Acabamento Interior & F,G & 24 & 30 & 48 & 36000 & 38400 &
+40800\tabularnewline
+I & Acabamento Exterior & F & 28 & 29 & 96 & 48750 & 52500 &
+56250\tabularnewline
+J & Limpeza Local & H,I & 10 & 10 & 12 & 360 & 450 & 540\tabularnewline
+\bottomrule
+\end{longtable}
+
+Tabela 3 - Atividades
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}60}]:} g2 \PY{o}{\PYZlt{}\PYZhy{}} graph\PY{p}{(} edges\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{start\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{a\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{start\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{b\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{start\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{c\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{c\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{d\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{b\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{e\PYZsq{}}\PY{p}{,}
+                              \PY{l+s}{\PYZsq{}}\PY{l+s}{d\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{e\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{e\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{f\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{e\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{g\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{f\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{h\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{g\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{h\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{f\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{i\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{h\PYZsq{}}\PY{p}{,}
+                              \PY{l+s}{\PYZsq{}}\PY{l+s}{j\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{i\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{j\PYZsq{}}\PY{p}{)} \PY{p}{)}
+         plot\PY{p}{(}g2\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_21_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}59}]:} g2 \PY{o}{\PYZlt{}\PYZhy{}} graph\PY{p}{(} edges\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{start\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{a\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{start\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{b\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{a\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{c\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{b\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{c\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{c\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{d\PYZsq{}}\PY{p}{,}
+                              \PY{l+s}{\PYZsq{}}\PY{l+s}{b\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{e\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{d\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{e\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{e\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{f\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{e\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{g\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{f\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{h\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{g\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{h\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{f\PYZsq{}}\PY{p}{,}
+                              \PY{l+s}{\PYZsq{}}\PY{l+s}{i\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{h\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{j\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{i\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{j\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{j\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{end\PYZsq{}}\PY{p}{)} \PY{p}{)}
+         plot\PY{p}{(}g2\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_22_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    • Obtenha as aproximações para o risco de custo e de prazo da obra
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}81}]:} custo \PY{o}{\PYZlt{}\PYZhy{}} \PY{p}{(}rtriangle\PY{p}{(}\PY{l+m}{10000}\PY{p}{,}\PY{l+m}{300}\PY{p}{,}\PY{l+m}{600}\PY{p}{,}\PY{l+m}{450}\PY{p}{)}\PY{o}{+} 
+                   rtriangle\PY{p}{(}\PY{l+m}{10000}\PY{p}{,}\PY{l+m}{480}\PY{p}{,}\PY{l+m}{720}\PY{p}{,}\PY{l+m}{600}\PY{p}{)}\PY{o}{+} 
+                   rtriangle\PY{p}{(}\PY{l+m}{10000}\PY{p}{,}\PY{l+m}{3750}\PY{p}{,}\PY{l+m}{5250}\PY{p}{,}\PY{l+m}{4500}\PY{p}{)}\PY{o}{+} 
+                   rtriangle\PY{p}{(}\PY{l+m}{10000}\PY{p}{,}\PY{l+m}{8400}\PY{p}{,}\PY{l+m}{10800}\PY{p}{,}\PY{l+m}{9600}\PY{p}{)}\PY{o}{+} 
+                   rtriangle\PY{p}{(}\PY{l+m}{10000}\PY{p}{,}\PY{l+m}{300000}\PY{p}{,}\PY{l+m}{322500}\PY{p}{,}\PY{l+m}{312000}\PY{p}{)}\PY{o}{+} 
+                   rtriangle\PY{p}{(}\PY{l+m}{10000}\PY{p}{,}\PY{l+m}{37650}\PY{p}{,}\PY{l+m}{41400}\PY{p}{,}\PY{l+m}{39600}\PY{p}{)}\PY{o}{+} 
+                   rtriangle\PY{p}{(}\PY{l+m}{10000}\PY{p}{,}\PY{l+m}{10500}\PY{p}{,}\PY{l+m}{12600}\PY{p}{,}\PY{l+m}{11550}\PY{p}{)}\PY{o}{+} 
+                   rtriangle\PY{p}{(}\PY{l+m}{10000}\PY{p}{,}\PY{l+m}{36000}\PY{p}{,}\PY{l+m}{40800}\PY{p}{,}\PY{l+m}{38400}\PY{p}{)}\PY{o}{+} 
+                   rtriangle\PY{p}{(}\PY{l+m}{10000}\PY{p}{,}\PY{l+m}{48750}\PY{p}{,}\PY{l+m}{56250}\PY{p}{,}\PY{l+m}{52500}\PY{p}{)}\PY{o}{+} 
+                   rtriangle\PY{p}{(}\PY{l+m}{10000}\PY{p}{,}\PY{l+m}{360}\PY{p}{,}\PY{l+m}{540}\PY{p}{,}\PY{l+m}{450}\PY{p}{)}\PY{p}{)}
+         \PY{k+kp}{mean}\PY{p}{(}custo\PY{p}{)}
+         plot\PY{p}{(}density\PY{p}{(}custo\PY{p}{)}\PY{p}{,} col\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{red\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    469137.333291898
+
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_24_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}19}]:} resposta\PYZus{}final \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
+         \PY{k+kr}{for}\PY{p}{(} h \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{1000}\PY{p}{)}\PY{p}{\PYZob{}}
+         precedencia \PY{o}{\PYZlt{}\PYZhy{}}  \PY{k+kt}{list}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{start\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{A\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{2}\PY{p}{,}\PY{l+m}{18}\PY{p}{,}\PY{l+m}{4}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{start\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{B\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{19}\PY{p}{,}\PY{l+m}{9}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{start\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{C\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{4}\PY{p}{,}\PY{l+m}{28}\PY{p}{,}\PY{l+m}{10}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{C\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{D\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{8}\PY{p}{,}\PY{l+m}{36}\PY{p}{,}\PY{l+m}{13}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{B\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{E\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{44}\PY{p}{,}\PY{l+m}{100}\PY{p}{,}\PY{l+m}{60}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{D\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{E\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{44}\PY{p}{,}\PY{l+m}{100}\PY{p}{,}\PY{l+m}{60}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{E\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{F\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{30}\PY{p}{,}\PY{l+m}{74}\PY{p}{,}\PY{l+m}{40}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{E\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{G\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{9}\PY{p}{,}\PY{l+m}{43}\PY{p}{,}\PY{l+m}{20}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{F\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{H\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{24}\PY{p}{,}\PY{l+m}{48}\PY{p}{,}\PY{l+m}{30}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{G\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{H\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{24}\PY{p}{,}\PY{l+m}{48}\PY{p}{,}\PY{l+m}{30}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{F\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{I\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{28}\PY{p}{,}\PY{l+m}{96}\PY{p}{,}\PY{l+m}{29}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{H\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{J\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{10}\PY{p}{,}\PY{l+m}{12}\PY{p}{,}\PY{l+m}{10}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{I\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{J\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{10}\PY{p}{,}\PY{l+m}{12}\PY{p}{,}\PY{l+m}{10}\PY{p}{)}\PY{p}{)}\PY{p}{,}                     
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{J\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{end\PYZdq{}}\PY{p}{,}\PY{l+m}{0}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{J\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{end\PYZdq{}}\PY{p}{,}\PY{l+m}{0}\PY{p}{)}\PY{p}{)}
+         simula\PY{p}{(}precedencia\PY{p}{)}
+         \PY{p}{\PYZcb{}}
+         \PY{k+kp}{mean}\PY{p}{(}resposta\PYZus{}final\PY{p}{)}
+\end{Verbatim}
+
+
+    213.036607108275
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}20}]:} plot\PY{p}{(}density\PY{p}{(}resposta\PYZus{}final\PY{p}{)}\PY{p}{,} col\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{red\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_26_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}69}]:} resposta\PYZus{}final \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
+         \PY{k+kr}{for}\PY{p}{(} h \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{1000}\PY{p}{)}\PY{p}{\PYZob{}}
+         precedencia \PY{o}{\PYZlt{}\PYZhy{}}  \PY{k+kt}{list}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{start\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{A\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{2}\PY{p}{,}\PY{l+m}{18}\PY{p}{,}\PY{l+m}{4}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{start\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{B\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{19}\PY{p}{,}\PY{l+m}{9}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{B\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{C\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{4}\PY{p}{,}\PY{l+m}{28}\PY{p}{,}\PY{l+m}{10}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{A\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{C\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{4}\PY{p}{,}\PY{l+m}{28}\PY{p}{,}\PY{l+m}{10}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{C\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{D\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{8}\PY{p}{,}\PY{l+m}{36}\PY{p}{,}\PY{l+m}{13}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{B\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{E\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{44}\PY{p}{,}\PY{l+m}{100}\PY{p}{,}\PY{l+m}{60}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{D\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{E\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{44}\PY{p}{,}\PY{l+m}{100}\PY{p}{,}\PY{l+m}{60}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{E\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{F\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{30}\PY{p}{,}\PY{l+m}{74}\PY{p}{,}\PY{l+m}{40}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{E\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{G\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{9}\PY{p}{,}\PY{l+m}{43}\PY{p}{,}\PY{l+m}{20}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{F\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{H\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{24}\PY{p}{,}\PY{l+m}{48}\PY{p}{,}\PY{l+m}{30}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{G\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{H\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{24}\PY{p}{,}\PY{l+m}{48}\PY{p}{,}\PY{l+m}{30}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{F\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{I\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{28}\PY{p}{,}\PY{l+m}{96}\PY{p}{,}\PY{l+m}{29}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{H\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{J\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{10}\PY{p}{,}\PY{l+m}{12}\PY{p}{,}\PY{l+m}{10}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{I\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{J\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{10}\PY{p}{,}\PY{l+m}{12}\PY{p}{,}\PY{l+m}{10}\PY{p}{)}\PY{p}{)}\PY{p}{,}                     
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{J\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{end\PYZdq{}}\PY{p}{,}\PY{l+m}{0}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{J\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{end\PYZdq{}}\PY{p}{,}\PY{l+m}{0}\PY{p}{)}\PY{p}{)}
+         simula\PY{p}{(}precedencia\PY{p}{)}
+         \PY{p}{\PYZcb{}}
+         \PY{k+kp}{mean}\PY{p}{(}resposta\PYZus{}final\PY{p}{)}
+\end{Verbatim}
+
+
+    225.193428261673
+
+    
+    • Obtenha uma estimativa das probabilidades das atividades pertencerem
+ao caminho crítico
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}82}]:} resposta\PYZus{}final \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
+         caminho \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
+         \PY{k+kr}{for}\PY{p}{(} h \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{10000}\PY{p}{)}\PY{p}{\PYZob{}}
+         precedencia \PY{o}{\PYZlt{}\PYZhy{}}  \PY{k+kt}{list}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{start\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{A\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{2}\PY{p}{,}\PY{l+m}{18}\PY{p}{,}\PY{l+m}{4}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{start\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{B\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{19}\PY{p}{,}\PY{l+m}{9}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{B\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{C\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{4}\PY{p}{,}\PY{l+m}{28}\PY{p}{,}\PY{l+m}{10}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{A\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{C\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{4}\PY{p}{,}\PY{l+m}{28}\PY{p}{,}\PY{l+m}{10}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{C\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{D\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{8}\PY{p}{,}\PY{l+m}{36}\PY{p}{,}\PY{l+m}{13}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{B\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{E\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{44}\PY{p}{,}\PY{l+m}{100}\PY{p}{,}\PY{l+m}{60}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{D\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{E\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{44}\PY{p}{,}\PY{l+m}{100}\PY{p}{,}\PY{l+m}{60}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{E\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{F\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{30}\PY{p}{,}\PY{l+m}{74}\PY{p}{,}\PY{l+m}{40}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{E\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{G\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{9}\PY{p}{,}\PY{l+m}{43}\PY{p}{,}\PY{l+m}{20}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{F\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{H\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{24}\PY{p}{,}\PY{l+m}{48}\PY{p}{,}\PY{l+m}{30}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{G\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{H\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{24}\PY{p}{,}\PY{l+m}{48}\PY{p}{,}\PY{l+m}{30}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{F\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{I\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{28}\PY{p}{,}\PY{l+m}{96}\PY{p}{,}\PY{l+m}{29}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{H\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{J\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{10}\PY{p}{,}\PY{l+m}{12}\PY{p}{,}\PY{l+m}{10}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{I\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{J\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{10}\PY{p}{,}\PY{l+m}{12}\PY{p}{,}\PY{l+m}{10}\PY{p}{)}\PY{p}{)}\PY{p}{,}                     
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{J\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{end\PYZdq{}}\PY{p}{,}\PY{l+m}{0}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{J\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{end\PYZdq{}}\PY{p}{,}\PY{l+m}{0}\PY{p}{)}\PY{p}{)}
+         simula\PY{p}{(}precedencia\PY{p}{)}
+         caminho \PY{o}{\PYZlt{}\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}caminho\PY{p}{,}ant\PY{p}{)}    
+         \PY{p}{\PYZcb{}}
+         \PY{k+kp}{mean}\PY{p}{(}resposta\PYZus{}final\PY{p}{)}
+         barplot\PY{p}{(}\PY{k+kp}{table}\PY{p}{(}caminho\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    224.97739494658
+
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_29_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    • Faça um grafico de dispersão mostrando a correlação entre prazo e
+custo da obra.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}83}]:} plot\PY{p}{(}custo\PY{p}{,}resposta\PYZus{}final\PY{p}{,} main\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{plot\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_31_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}84}]:} df \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{data.frame}\PY{p}{(}custo\PY{p}{,}resposta\PYZus{}final\PY{p}{)}
+         qplot\PY{p}{(}custo\PY{p}{,}resposta\PYZus{}final\PY{p}{,}data\PY{o}{=}df\PY{p}{,} geom\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{bin2d\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_32_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    3- Dado a rede de projeto mostrada na figura 1, aplique a técnica de MC
+para obter um agendamento que proporciona uma boa aproximação para o
+máximo NPV a ser obtido pelo projeto. O número na parte de cima do
+circulo representando uma atividade é sua duração e o abaixo é o seu NPV
+trazido para o término da atividade. Assuma:\\
+• que a data limite δn = 44\\
+• valor presente é continuamente descontado a uma taxa r = 0.01\\
+Passos:\\
+• gerar a relação (atividade, est, lst)\\
+• implementar uma função que sorteia um cronograma\\
+• implementar uma função que verifica se o cronograma é valido\\
+• avaliar a qualidade da aproximação para a solução ótima
+
+    \begin{longtable}[]{@{}llll@{}}
+\toprule
+Atividade & Predecessor & Duração & NPV\tabularnewline
+\midrule
+\endhead
+1 & START & 0 & 0\tabularnewline
+2 & 1 & 6 & -140\tabularnewline
+3 & 1 & 5 & 318\tabularnewline
+4 & 1 & 3 & 312\tabularnewline
+5 & 3 & 1 & -329\tabularnewline
+6 & 3 & 6 & 153\tabularnewline
+7 & 3 & 2 & 193\tabularnewline
+8 & 4,7 & 1 & 361\tabularnewline
+9 & 2 & 4 & 24\tabularnewline
+10 & 5 & 3 & 33\tabularnewline
+11 & 7 & 2 & 387\tabularnewline
+12 & 6,10,11 & 3 & -386\tabularnewline
+13 & 8,12 & 5 & 171\tabularnewline
+14 & 9,13 & 0 & 0\tabularnewline
+\bottomrule
+\end{longtable}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}228}]:} g3 \PY{o}{\PYZlt{}\PYZhy{}} graph\PY{p}{(}edges\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{start=1\PYZsq{}}\PY{p}{,}\PY{l+m}{2}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{start=1\PYZsq{}}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{start=1\PYZsq{}}\PY{p}{,}\PY{l+m}{4}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{6}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{7}\PY{p}{,}
+                               \PY{l+m}{4}\PY{p}{,}\PY{l+m}{8}\PY{p}{,}\PY{l+m}{7}\PY{p}{,}\PY{l+m}{8}\PY{p}{,}\PY{l+m}{2}\PY{p}{,}\PY{l+m}{9}\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{10}\PY{p}{,}\PY{l+m}{7}\PY{p}{,}\PY{l+m}{11}\PY{p}{,}
+                               \PY{l+m}{6}\PY{p}{,}\PY{l+m}{12}\PY{p}{,}\PY{l+m}{10}\PY{p}{,}\PY{l+m}{12}\PY{p}{,}\PY{l+m}{11}\PY{p}{,}\PY{l+m}{12}\PY{p}{,}\PY{l+m}{8}\PY{p}{,}\PY{l+m}{13}\PY{p}{,}\PY{l+m}{12}\PY{p}{,}\PY{l+m}{13}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{end=14\PYZsq{}}\PY{p}{,}\PY{l+m}{13}\PY{p}{,}\PY{l+m}{9}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{end=14\PYZsq{}}\PY{p}{)} \PY{p}{)}
+          plot\PY{p}{(}g3\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_35_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}229}]:} n \PY{o}{\PYZlt{}\PYZhy{}} \PY{l+m}{14}
+          duracao\PYZus{}max \PY{o}{\PYZlt{}\PYZhy{}} \PY{l+m}{44}
+          duracao \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{l+m}{0}\PY{p}{,}\PY{l+m}{6}\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{6}\PY{p}{,}\PY{l+m}{2}\PY{p}{,}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{4}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{2}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{0}\PY{p}{)}
+          valor \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{l+m}{0}\PY{p}{,}\PY{l+m}{\PYZhy{}140}\PY{p}{,}\PY{l+m}{318}\PY{p}{,}\PY{l+m}{312}\PY{p}{,}\PY{l+m}{\PYZhy{}329}\PY{p}{,}\PY{l+m}{153}\PY{p}{,}\PY{l+m}{193}\PY{p}{,}\PY{l+m}{361}\PY{p}{,}\PY{l+m}{24}\PY{p}{,}\PY{l+m}{33}\PY{p}{,}\PY{l+m}{387}\PY{p}{,}\PY{l+m}{\PYZhy{}386}\PY{p}{,}\PY{l+m}{171}\PY{p}{,}\PY{l+m}{0}\PY{p}{)}
+          precedencia \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{list}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{2}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{3}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{4}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{2}\PY{p}{,}\PY{l+m}{9}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{5}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{6}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{7}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+m}{4}\PY{p}{,}\PY{l+m}{8}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{10}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{6}\PY{p}{,}\PY{l+m}{12}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{7}\PY{p}{,}\PY{l+m}{8}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{7}\PY{p}{,}\PY{l+m}{11}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{8}\PY{p}{,}\PY{l+m}{13}\PY{p}{)}\PY{p}{,}
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+m}{9}\PY{p}{,}\PY{l+m}{14}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{10}\PY{p}{,}\PY{l+m}{12}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{11}\PY{p}{,}\PY{l+m}{12}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{12}\PY{p}{,}\PY{l+m}{13}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{13}\PY{p}{,}\PY{l+m}{14}\PY{p}{)}\PY{p}{)}
+          z \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{length}\PY{p}{(}precedencia\PY{p}{)}
+          inicio\PYZus{}cedo \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{rep}\PY{p}{(}\PY{l+m}{0}\PY{p}{,}\PY{l+m}{14}\PY{p}{)}
+          inicio\PYZus{}tarde \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{rep}\PY{p}{(}duracao\PYZus{}max\PY{p}{,}\PY{l+m}{14}\PY{p}{)} 
+          \PY{k+kr}{for}\PY{p}{(}i \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}n\PY{p}{)}\PY{p}{\PYZob{}}
+              \PY{k+kr}{for}\PY{p}{(}j \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}z\PY{p}{)}\PY{p}{\PYZob{}}
+                  \PY{k+kr}{if}\PY{p}{(} i \PY{o}{==} precedencia\PY{p}{[[}j\PY{p}{]]}\PY{p}{[}\PY{l+m}{2}\PY{p}{]}\PY{p}{)}\PY{p}{\PYZob{}}
+                      item \PY{o}{\PYZlt{}\PYZhy{}} precedencia\PY{p}{[[}j\PY{p}{]]}\PY{p}{[}\PY{l+m}{1}\PY{p}{]}
+                      \PY{k+kr}{if}\PY{p}{(}inicio\PYZus{}cedo\PY{p}{[[}i\PY{p}{]]} \PY{o}{\PYZlt{}=} inicio\PYZus{}cedo\PY{p}{[[}item\PY{p}{]]} \PY{o}{+} duracao\PY{p}{[[}item\PY{p}{]]}\PY{p}{)}\PY{p}{\PYZob{}}
+                          inicio\PYZus{}cedo\PY{p}{[[}i\PY{p}{]]} \PY{o}{\PYZlt{}\PYZhy{}} inicio\PYZus{}cedo\PY{p}{[[}item\PY{p}{]]} \PY{o}{+} duracao\PY{p}{[[}item\PY{p}{]]}
+                      \PY{p}{\PYZcb{}}
+                  \PY{p}{\PYZcb{}}
+              
+              \PY{p}{\PYZcb{}}
+          \PY{p}{\PYZcb{}}
+          
+          \PY{k+kr}{for}\PY{p}{(}i \PY{k+kr}{in} n\PY{o}{:}\PY{l+m}{1}\PY{p}{)}\PY{p}{\PYZob{}}
+              \PY{k+kr}{for}\PY{p}{(}j \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}z\PY{p}{)}\PY{p}{\PYZob{}}
+                  \PY{k+kr}{if}\PY{p}{(} i \PY{o}{==} precedencia\PY{p}{[[}j\PY{p}{]]}\PY{p}{[}\PY{l+m}{1}\PY{p}{]}\PY{p}{)}\PY{p}{\PYZob{}}
+                      item \PY{o}{\PYZlt{}\PYZhy{}} precedencia\PY{p}{[[}j\PY{p}{]]}\PY{p}{[}\PY{l+m}{2}\PY{p}{]}
+                      \PY{k+kr}{if}\PY{p}{(}inicio\PYZus{}tarde\PY{p}{[[}i\PY{p}{]]} \PY{o}{\PYZgt{}=} inicio\PYZus{}tarde\PY{p}{[[}item\PY{p}{]]} \PY{o}{\PYZhy{}} duracao\PY{p}{[[}i\PY{p}{]]}\PY{p}{)}\PY{p}{\PYZob{}}
+                          inicio\PYZus{}tarde\PY{p}{[[}i\PY{p}{]]} \PY{o}{\PYZlt{}\PYZhy{}} inicio\PYZus{}tarde\PY{p}{[[}item\PY{p}{]]} \PY{o}{\PYZhy{}} duracao\PY{p}{[[}i\PY{p}{]]}
+                      \PY{p}{\PYZcb{}}
+                  \PY{p}{\PYZcb{}}
+              
+              \PY{p}{\PYZcb{}}
+          \PY{p}{\PYZcb{}}
+          
+          inicio\PYZus{}cedo 
+          inicio\PYZus{}tarde
+\end{Verbatim}
+
+
+    \begin{enumerate*}
+\item 0
+\item 0
+\item 0
+\item 0
+\item 5
+\item 5
+\item 5
+\item 7
+\item 6
+\item 6
+\item 7
+\item 11
+\item 14
+\item 19
+\end{enumerate*}
+
+
+    
+    \begin{enumerate*}
+\item 25
+\item 34
+\item 25
+\item 35
+\item 32
+\item 30
+\item 32
+\item 38
+\item 40
+\item 33
+\item 34
+\item 36
+\item 39
+\item 44
+\end{enumerate*}
+
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}230}]:} valida \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kr}{function}\PY{p}{(}inicio\PY{p}{,} precedencia\PY{p}{,} duracao\PY{p}{,} prazo\PY{p}{)}\PY{p}{\PYZob{}}
+              z \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{length}\PY{p}{(}precedencia\PY{p}{)}
+              n \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{length}\PY{p}{(}inicio\PY{p}{)}
+              \PY{k+kr}{for}\PY{p}{(}i \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}n\PY{p}{)}\PY{p}{\PYZob{}}
+                  \PY{k+kr}{if}\PY{p}{(}inicio\PY{p}{[[}i\PY{p}{]]} \PY{o}{+} duracao\PY{p}{[[}i\PY{p}{]]} \PY{o}{\PYZgt{}} prazo\PY{p}{)} \PY{p}{\PYZob{}}
+                      \PY{k+kr}{return}\PY{p}{(}\PY{l+m}{0}\PY{p}{)}
+                  \PY{p}{\PYZcb{}}
+              \PY{p}{\PYZcb{}}
+              
+              \PY{k+kr}{for}\PY{p}{(}i \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}z\PY{p}{)}\PY{p}{\PYZob{}}
+                  \PY{k+kr}{if}\PY{p}{(}inicio\PY{p}{[[}precedencia\PY{p}{[[}i\PY{p}{]]}\PY{p}{[}\PY{l+m}{2}\PY{p}{]]}\PY{p}{]} \PY{o}{\PYZlt{}} inicio\PY{p}{[[}precedencia\PY{p}{[[}i\PY{p}{]]}\PY{p}{[}\PY{l+m}{1}\PY{p}{]]}\PY{p}{]} \PY{o}{+} 
+                     duracao\PY{p}{[[}precedencia\PY{p}{[[}i\PY{p}{]]}\PY{p}{[}\PY{l+m}{1}\PY{p}{]]}\PY{p}{]}\PY{p}{)}\PY{p}{\PYZob{}}
+                      \PY{k+kr}{return}\PY{p}{(}\PY{l+m}{0}\PY{p}{)}
+                  \PY{p}{\PYZcb{}}
+              \PY{p}{\PYZcb{}}
+              \PY{k+kr}{return}\PY{p}{(}\PY{l+m}{1}\PY{p}{)}
+          \PY{p}{\PYZcb{}}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}231}]:} npv \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kr}{function}\PY{p}{(}inicio\PY{p}{,} valor\PY{p}{,}taxa\PY{p}{)}\PY{p}{\PYZob{}}
+              npv0 \PY{o}{\PYZlt{}\PYZhy{}} \PY{l+m}{0}
+              n \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{length}\PY{p}{(}inicio\PY{p}{)}
+              
+              \PY{k+kr}{for}\PY{p}{(}i \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}n\PY{p}{)}\PY{p}{\PYZob{}}
+                  npv0 \PY{o}{\PYZlt{}\PYZhy{}} npv0 \PY{o}{+} valor\PY{p}{[[}i\PY{p}{]]} \PY{o}{*} \PY{p}{(}\PY{l+m}{1} \PY{o}{\PYZhy{}} taxa\PY{p}{)}\PY{o}{\PYZca{}}inicio\PY{p}{[[}i\PY{p}{]]}
+              \PY{p}{\PYZcb{}}
+              npv0
+          \PY{p}{\PYZcb{}}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}232}]:} adia \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kr}{function}\PY{p}{(}inicio\PY{p}{,}duracao\PY{p}{,}precedencia\PY{p}{)}\PY{p}{\PYZob{}}
+              n \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{length}\PY{p}{(}inicio\PY{p}{)}
+              z \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{length}\PY{p}{(}precedencia\PY{p}{)}
+              \PY{k+kr}{for}\PY{p}{(}j \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}z\PY{p}{)}\PY{p}{\PYZob{}}
+                  \PY{k+kr}{if}\PY{p}{(} inicio\PY{p}{[[}precedencia\PY{p}{[[}j\PY{p}{]]}\PY{p}{[}\PY{l+m}{1}\PY{p}{]]}\PY{p}{]} \PY{o}{+} 
+                     duracao\PY{p}{[[}precedencia\PY{p}{[[}j\PY{p}{]]}\PY{p}{[}\PY{l+m}{1}\PY{p}{]]}\PY{p}{]} \PY{o}{\PYZgt{}}  inicio\PY{p}{[[}precedencia\PY{p}{[[}j\PY{p}{]]}\PY{p}{[}\PY{l+m}{2}\PY{p}{]]}\PY{p}{]}\PY{p}{)}\PY{p}{\PYZob{}}
+                      inicio\PY{p}{[[}precedencia\PY{p}{[[}j\PY{p}{]]}\PY{p}{[}\PY{l+m}{2}\PY{p}{]]}\PY{p}{]} \PY{o}{\PYZlt{}\PYZhy{}} inicio\PY{p}{[[}precedencia\PY{p}{[[}j\PY{p}{]]}\PY{p}{[}\PY{l+m}{1}\PY{p}{]]}\PY{p}{]} \PY{o}{+}
+                      duracao\PY{p}{[[}precedencia\PY{p}{[[}j\PY{p}{]]}\PY{p}{[}\PY{l+m}{1}\PY{p}{]]}\PY{p}{]}
+                      
+                      \PY{k+kr}{if}\PY{p}{(}valida\PY{p}{(}inicio\PY{p}{,} precedencia\PY{p}{,} duracao\PY{p}{,} duracao\PYZus{}max\PY{p}{)}\PY{p}{)}\PY{p}{\PYZob{}}
+                          \PY{k+kr}{return}\PY{p}{(}inicio\PY{p}{)}  
+                      \PY{p}{\PYZcb{}}   
+                  \PY{p}{\PYZcb{}}
+              \PY{p}{\PYZcb{}}
+              \PY{k+kr}{if}\PY{p}{(}valida\PY{p}{(}inicio\PY{p}{,} precedencia\PY{p}{,} duracao\PY{p}{,} duracao\PYZus{}max\PY{p}{)}\PY{p}{)}\PY{p}{\PYZob{}}
+                  \PY{k+kr}{return}\PY{p}{(}inicio\PY{p}{)}  
+              \PY{p}{\PYZcb{}}
+          \PY{p}{\PYZcb{}}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}233}]:} inicio \PY{o}{\PYZlt{}\PYZhy{}} inicio\PYZus{}cedo
+          \PY{k+kr}{for}\PY{p}{(}i \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}n\PY{p}{)}\PY{p}{\PYZob{}}
+              novo \PY{o}{\PYZlt{}\PYZhy{}} inicio
+              novo\PY{p}{[[}i\PY{p}{]]} \PY{o}{=} inicio\PYZus{}tarde\PY{p}{[[}i\PY{p}{]]}
+              novo \PY{o}{\PYZlt{}\PYZhy{}} adia\PY{p}{(}novo\PY{p}{,}duracao\PY{p}{,}precedencia\PY{p}{)}
+              \PY{k+kr}{if}\PY{p}{(}npv\PY{p}{(}novo\PY{p}{,} valor\PY{p}{,}\PY{l+m}{0.01}\PY{p}{)} \PY{o}{\PYZgt{}} npv\PY{p}{(}inicio\PY{p}{,} valor\PY{p}{,}\PY{l+m}{0.01}\PY{p}{)} \PY{p}{)}\PY{p}{\PYZob{}}
+                  \PY{k+kr}{if}\PY{p}{(}valida\PY{p}{(}novo\PY{p}{,} precedencia\PY{p}{,} duracao\PY{p}{,} duracao\PYZus{}max\PY{p}{)}\PY{p}{)}\PY{p}{\PYZob{}}
+                      inicio \PY{o}{\PYZlt{}\PYZhy{}} novo
+                  \PY{p}{\PYZcb{}}
+              \PY{p}{\PYZcb{}}
+          \PY{p}{\PYZcb{}}
+          inicio
+          npv\PY{p}{(}inicio\PY{p}{,} valor\PY{p}{,}\PY{l+m}{0.01}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{enumerate*}
+\item 0
+\item 34
+\item 0
+\item 0
+\item 32
+\item 5
+\item 5
+\item 7
+\item 40
+\item 33
+\item 7
+\item 36
+\item 39
+\item 44
+\end{enumerate*}
+
+
+    
+    1204.70605015516
+
+    
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}
