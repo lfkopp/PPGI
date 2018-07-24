@@ -285,13 +285,31 @@ Lista 05 // Data: 10/07/2018 // Entrega: 17/07/2018\\
 Luis Filipe Kopp
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}77}]:} \PY{k+kp}{set.seed}\PY{p}{(}\PY{l+m}{1}\PY{p}{)}
-         \PY{k+kn}{library}\PY{p}{(}triangle\PY{p}{)}
-         \PY{k+kn}{library}\PY{p}{(}igraph\PY{p}{)}
-         \PY{k+kn}{library}\PY{p}{(}hexbin\PY{p}{)}
-         \PY{k+kn}{library}\PY{p}{(}ggplot2\PY{p}{)}
+{\color{incolor}In [{\color{incolor}1}]:} \PY{k+kp}{set.seed}\PY{p}{(}\PY{l+m}{1}\PY{p}{)}
+        \PY{k+kn}{library}\PY{p}{(}triangle\PY{p}{)}
+        \PY{k+kn}{library}\PY{p}{(}igraph\PY{p}{)}
+        \PY{k+kn}{library}\PY{p}{(}hexbin\PY{p}{)}
+        \PY{k+kn}{library}\PY{p}{(}ggplot2\PY{p}{)}
 \end{Verbatim}
 
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Warning message:
+"package 'triangle' was built under R version 3.3.3"Warning message:
+"package 'igraph' was built under R version 3.3.3"
+Attaching package: 'igraph'
+
+The following objects are masked from 'package:stats':
+
+    decompose, spectrum
+
+The following object is masked from 'package:base':
+
+    union
+
+Warning message:
+"package 'hexbin' was built under R version 3.3.3"
+    \end{Verbatim}
 
     1-Usando MC na rede descrita nas tabelas 1 e 2, obtenha:
 
@@ -317,9 +335,9 @@ end)\\
 Tabela 2 - Redes
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}85}]:} g1 \PY{o}{\PYZlt{}\PYZhy{}} graph\PY{p}{(}edges\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{start\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{a\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{start\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{b\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{start\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{c\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{c\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{e\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{a\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{f\PYZsq{}}\PY{p}{,}
-                              \PY{l+s}{\PYZsq{}}\PY{l+s}{a\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{d\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{f\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{end\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{g\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{end\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{b\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{g\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{e\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{g\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{d\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{g\PYZsq{}}\PY{p}{)} \PY{p}{)}
-         plot\PY{p}{(}g1\PY{p}{)}
+{\color{incolor}In [{\color{incolor}2}]:} g1 \PY{o}{\PYZlt{}\PYZhy{}} graph\PY{p}{(}edges\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{start\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{a\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{start\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{b\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{start\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{c\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{c\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{e\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{a\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{f\PYZsq{}}\PY{p}{,}
+                             \PY{l+s}{\PYZsq{}}\PY{l+s}{a\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{d\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{f\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{end\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{g\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{end\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{b\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{g\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{e\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{g\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{d\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{g\PYZsq{}}\PY{p}{)} \PY{p}{)}
+        plot\PY{p}{(}g1\PY{p}{)}
 \end{Verbatim}
 
 
@@ -331,37 +349,38 @@ Tabela 2 - Redes
     • Uma aproximação empírica para a duração do projeto mostrado.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}2}]:} resposta\PYZus{}final \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
-        ant \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
-        
-        simula \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kr}{function}\PY{p}{(}p\PY{p}{)}\PY{p}{\PYZob{}}
-        resposta \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
-        
-        n \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{length}\PY{p}{(}p\PY{p}{)}
-        procura\PYZus{}caminho \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kr}{function}\PY{p}{(}p\PY{p}{,}node\PY{p}{,}anterior\PY{p}{,}tempo\PY{p}{)}\PY{p}{\PYZob{}}
-            \PY{k+kr}{if}\PY{p}{(}node \PY{o}{==} \PY{l+s}{\PYZdq{}}\PY{l+s}{end\PYZdq{}}\PY{p}{)}\PY{p}{\PYZob{}}
-                \PY{k+kr}{if}\PY{p}{(}tempo \PY{o}{\PYZgt{}} \PY{k+kp}{t}\PY{p}{)}\PY{p}{\PYZob{}}
-                    ant \PY{o}{\PYZlt{}\PYZlt{}\PYZhy{}} anterior
-                    t \PY{o}{\PYZlt{}\PYZlt{}\PYZhy{}} tempo
-                \PY{p}{\PYZcb{}}
-                
-                resposta \PY{o}{\PYZlt{}\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}resposta\PY{p}{,}tempo\PY{p}{)}
-        
-            \PY{p}{\PYZcb{}}
-            \PY{k+kp}{else}\PY{p}{\PYZob{}}
-                \PY{k+kr}{for}\PY{p}{(}i \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}n\PY{p}{)}\PY{p}{\PYZob{}}
-                    \PY{k+kr}{if}\PY{p}{(}p\PY{p}{[[}i\PY{p}{]]}\PY{p}{[}\PY{l+m}{1}\PY{p}{]} \PY{o}{==} node\PY{p}{)}\PY{p}{\PYZob{}}  
-                        t \PY{o}{\PYZlt{}\PYZhy{}} tempo \PY{o}{+} \PY{k+kp}{as.numeric}\PY{p}{(}p\PY{p}{[[}i\PY{p}{]]}\PY{p}{[}\PY{l+m}{3}\PY{p}{]}\PY{p}{)}
-                        procura\PYZus{}caminho\PY{p}{(}p\PY{p}{,}p\PY{p}{[[}i\PY{p}{]]}\PY{p}{[}\PY{l+m}{2}\PY{p}{]}\PY{p}{,} \PY{k+kp}{paste}\PY{p}{(}anterior\PY{p}{,}p\PY{p}{[[}i\PY{p}{]]}\PY{p}{[}\PY{l+m}{1}\PY{p}{]}\PY{p}{,}
-                                                           sep \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZhy{}\PYZdq{}}\PY{p}{)}\PY{p}{,} \PY{k+kp}{t}\PY{p}{)}
-                    \PY{p}{\PYZcb{}}
-                \PY{p}{\PYZcb{}}   
-            \PY{p}{\PYZcb{}}
-        
-        \PY{p}{\PYZcb{}}
-        procura\PYZus{}caminho\PY{p}{(}p\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{start\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZdq{}}\PY{p}{,}\PY{l+m}{0}\PY{p}{)}    
-        resposta\PYZus{}final \PY{o}{\PYZlt{}\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}resposta\PYZus{}final\PY{p}{,}\PY{k+kp}{max}\PY{p}{(}resposta\PY{p}{)}\PY{p}{)}
-        \PY{p}{\PYZcb{}}
+{\color{incolor}In [{\color{incolor}38}]:} resposta\PYZus{}final \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
+         ant \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
+         
+         simula \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kr}{function}\PY{p}{(}p\PY{p}{)}\PY{p}{\PYZob{}}
+         resposta \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
+         
+         n \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{length}\PY{p}{(}p\PY{p}{)}
+         procura\PYZus{}caminho \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kr}{function}\PY{p}{(}p\PY{p}{,}node\PY{p}{,}anterior\PY{p}{,}tempo\PY{p}{)}\PY{p}{\PYZob{}}
+             \PY{k+kr}{if}\PY{p}{(}node \PY{o}{==} \PY{l+s}{\PYZdq{}}\PY{l+s}{end\PYZdq{}}\PY{p}{)}\PY{p}{\PYZob{}}
+                 \PY{k+kr}{if}\PY{p}{(}tempo \PY{o}{\PYZgt{}} \PY{k+kp}{t}\PY{p}{)}\PY{p}{\PYZob{}}
+                     \PY{k+kp}{print}\PY{p}{(}anterior\PY{p}{)}
+                     ant \PY{o}{\PYZlt{}\PYZlt{}\PYZhy{}} anterior
+                     t \PY{o}{\PYZlt{}\PYZlt{}\PYZhy{}} tempo
+                 \PY{p}{\PYZcb{}}
+                 
+                 resposta \PY{o}{\PYZlt{}\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}resposta\PY{p}{,}tempo\PY{p}{)}
+         
+             \PY{p}{\PYZcb{}}
+             \PY{k+kp}{else}\PY{p}{\PYZob{}}
+                 \PY{k+kr}{for}\PY{p}{(}i \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}n\PY{p}{)}\PY{p}{\PYZob{}}
+                     \PY{k+kr}{if}\PY{p}{(}p\PY{p}{[[}i\PY{p}{]]}\PY{p}{[}\PY{l+m}{1}\PY{p}{]} \PY{o}{==} node\PY{p}{)}\PY{p}{\PYZob{}}  
+                         t \PY{o}{\PYZlt{}\PYZhy{}} tempo \PY{o}{+} \PY{k+kp}{as.numeric}\PY{p}{(}p\PY{p}{[[}i\PY{p}{]]}\PY{p}{[}\PY{l+m}{3}\PY{p}{]}\PY{p}{)}
+                         procura\PYZus{}caminho\PY{p}{(}p\PY{p}{,}p\PY{p}{[[}i\PY{p}{]]}\PY{p}{[}\PY{l+m}{2}\PY{p}{]}\PY{p}{,} \PY{k+kp}{paste}\PY{p}{(}anterior\PY{p}{,}p\PY{p}{[[}i\PY{p}{]]}\PY{p}{[}\PY{l+m}{1}\PY{p}{]}\PY{p}{,}
+                                                            sep \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZhy{}\PYZdq{}}\PY{p}{)}\PY{p}{,} \PY{k+kp}{t}\PY{p}{)}
+                     \PY{p}{\PYZcb{}}
+                 \PY{p}{\PYZcb{}}   
+             \PY{p}{\PYZcb{}}
+         
+         \PY{p}{\PYZcb{}}
+         procura\PYZus{}caminho\PY{p}{(}p\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{start\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZdq{}}\PY{p}{,}\PY{l+m}{0}\PY{p}{)}    
+         resposta\PYZus{}final \PY{o}{\PYZlt{}\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}resposta\PYZus{}final\PY{p}{,}\PY{k+kp}{max}\PY{p}{(}resposta\PY{p}{)}\PY{p}{)}
+         \PY{p}{\PYZcb{}}
 \end{Verbatim}
 
 
@@ -380,6 +399,14 @@ Tabela 2 - Redes
 \end{Verbatim}
 
 
+    \begin{Verbatim}[commandchars=\\\{\}]
+[1] "-start-A-F"
+[1] "-start-A-D-G"
+[1] "-start-B-G"
+[1] "-start-C-E-G"
+
+    \end{Verbatim}
+
     11
 
     
@@ -390,7 +417,7 @@ Tabela 2 - Redes
 caminho crítico
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}65}]:} resposta\PYZus{}final \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}40}]:} resposta\PYZus{}final \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
          caminho \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
          \PY{k+kr}{for}\PY{p}{(} h \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{10000}\PY{p}{)}\PY{p}{\PYZob{}}
          precedencia \PY{o}{\PYZlt{}\PYZhy{}}  \PY{k+kt}{list}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{start\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{A\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{4}\PY{p}{,}\PY{l+m}{2}\PY{p}{)}\PY{p}{)}\PY{p}{,}
@@ -410,8 +437,21 @@ caminho crítico
 \end{Verbatim}
 
 
+    \begin{Verbatim}[commandchars=\\\{\}]
+[1] "-start-C-E-G"
+[1] "-start-C-E-G"
+[1] "-start-C-E-G"
+[1] "-start-C-E-G"
+[1] "-start-C-E-G"
+[1] "-start-C-E-G"
+[1] "-start-C-E-G"
+[1] "-start-C-E-G"
+[1] "-start-C-E-G"
+
+    \end{Verbatim}
+
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_10_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_10_1.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -422,43 +462,43 @@ vezes (para n muito grande) e em mais de 99.9\% não houve troca de
 caminho crítico, por isso podemos assumir como extremamente improvável.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}55}]:} n \PY{o}{\PYZlt{}\PYZhy{}} \PY{l+m}{1000000}
-         \PY{k+kt}{c} \PY{o}{\PYZlt{}\PYZhy{}} rtriangle\PY{p}{(}n\PY{p}{,}\PY{l+m}{2}\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{4}\PY{p}{)} \PY{o}{+} rtriangle\PY{p}{(}n\PY{p}{,}\PY{l+m}{4}\PY{p}{,}\PY{l+m}{7}\PY{p}{,}\PY{l+m}{5}\PY{p}{)} \PY{o}{\PYZhy{}} rtriangle\PY{p}{(}n\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{7}\PY{p}{,}\PY{l+m}{6}\PY{p}{)}
-         \PY{k+kp}{sum}\PY{p}{(}\PY{k+kt}{c}\PY{o}{\PYZgt{}=}\PY{l+m}{0}\PY{p}{)}\PY{o}{/}\PY{k+kp}{length}\PY{p}{(}\PY{k+kt}{c}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}6}]:} n \PY{o}{\PYZlt{}\PYZhy{}} \PY{l+m}{1000000}
+        \PY{k+kt}{c} \PY{o}{\PYZlt{}\PYZhy{}} rtriangle\PY{p}{(}n\PY{p}{,}\PY{l+m}{2}\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{4}\PY{p}{)} \PY{o}{+} rtriangle\PY{p}{(}n\PY{p}{,}\PY{l+m}{4}\PY{p}{,}\PY{l+m}{7}\PY{p}{,}\PY{l+m}{5}\PY{p}{)} \PY{o}{\PYZhy{}} rtriangle\PY{p}{(}n\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{7}\PY{p}{,}\PY{l+m}{6}\PY{p}{)}
+        \PY{k+kp}{sum}\PY{p}{(}\PY{k+kt}{c}\PY{o}{\PYZgt{}=}\PY{l+m}{0}\PY{p}{)}\PY{o}{/}\PY{k+kp}{length}\PY{p}{(}\PY{k+kt}{c}\PY{p}{)}
 \end{Verbatim}
 
 
-    0.999681
+    0.99968
 
     
     • Compare o resultado com aquele obtido pela aproximação PERT.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}15}]:} resposta\PYZus{}final \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
-         \PY{k+kr}{for}\PY{p}{(} h \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{10000}\PY{p}{)}\PY{p}{\PYZob{}}
-         precedencia \PY{o}{\PYZlt{}\PYZhy{}}  \PY{k+kt}{list}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{start\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{A\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{4}\PY{p}{,}\PY{l+m}{2}\PY{p}{)}\PY{p}{)}\PY{p}{,}
-                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{start\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{B\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{7}\PY{p}{,}\PY{l+m}{6}\PY{p}{)}\PY{p}{)}\PY{p}{,}
-                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{start\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{C\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{2}\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{4}\PY{p}{)}\PY{p}{)}\PY{p}{,}
-                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{A\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{F\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{4}\PY{p}{)}\PY{p}{)}\PY{p}{,}
-                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{A\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{D\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{4}\PY{p}{,}\PY{l+m}{3}\PY{p}{)}\PY{p}{)}\PY{p}{,}
-                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{B\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{G\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{2}\PY{p}{)}\PY{p}{)}\PY{p}{,}
-                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{C\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{E\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{4}\PY{p}{,}\PY{l+m}{7}\PY{p}{,}\PY{l+m}{5}\PY{p}{)}\PY{p}{)}\PY{p}{,}
-                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{D\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{G\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{2}\PY{p}{)}\PY{p}{)}\PY{p}{,}
-                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{E\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{G\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{2}\PY{p}{)}\PY{p}{)}\PY{p}{,}
-                              \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{F\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{end\PYZdq{}}\PY{p}{,}\PY{l+m}{0}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{G\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{end\PYZdq{}}\PY{p}{,}\PY{l+m}{0}\PY{p}{)}\PY{p}{)}
-         simula\PY{p}{(}precedencia\PY{p}{)}
-         \PY{p}{\PYZcb{}}
-         \PY{k+kp}{mean}\PY{p}{(}resposta\PYZus{}final\PY{p}{)}
+{\color{incolor}In [{\color{incolor}7}]:} resposta\PYZus{}final \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
+        \PY{k+kr}{for}\PY{p}{(} h \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{10000}\PY{p}{)}\PY{p}{\PYZob{}}
+        precedencia \PY{o}{\PYZlt{}\PYZhy{}}  \PY{k+kt}{list}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{start\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{A\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{4}\PY{p}{,}\PY{l+m}{2}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                             \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{start\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{B\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{7}\PY{p}{,}\PY{l+m}{6}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                             \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{start\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{C\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{2}\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{4}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                             \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{A\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{F\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{4}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                             \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{A\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{D\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{4}\PY{p}{,}\PY{l+m}{3}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                             \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{B\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{G\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{2}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                             \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{C\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{E\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{4}\PY{p}{,}\PY{l+m}{7}\PY{p}{,}\PY{l+m}{5}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                             \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{D\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{G\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{2}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                             \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{E\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{G\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{2}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                             \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{F\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{end\PYZdq{}}\PY{p}{,}\PY{l+m}{0}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{G\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{end\PYZdq{}}\PY{p}{,}\PY{l+m}{0}\PY{p}{)}\PY{p}{)}
+        simula\PY{p}{(}precedencia\PY{p}{)}
+        \PY{p}{\PYZcb{}}
+        \PY{k+kp}{mean}\PY{p}{(}resposta\PYZus{}final\PY{p}{)}
 \end{Verbatim}
 
 
-    11.0002021043627
+    11.0263285705205
 
     
     Em cerca de 50\% das simulações, o tempo de conclusão foi superior à 11.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}16}]:} plot\PY{p}{(}density\PY{p}{(}resposta\PYZus{}final\PY{p}{)}\PY{p}{,} col\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{red\PYZdq{}}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}8}]:} plot\PY{p}{(}density\PY{p}{(}resposta\PYZus{}final\PY{p}{)}\PY{p}{,} col\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{red\PYZdq{}}\PY{p}{)}
 \end{Verbatim}
 
 
@@ -469,8 +509,167 @@ caminho crítico, por isso podemos assumir como extremamente improvável.
     
     • Gere todos agendamentos possíveis para o minimo prazo.
 
-    start-B-G-end e start-C-E-G-end
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}55}]:} precedencia \PY{o}{\PYZlt{}\PYZhy{}}  \PY{k+kt}{list}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{2}\PY{p}{,}\PY{l+m}{2}\PY{p}{)}\PY{p}{,} \PY{k+kt}{c}\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{6}\PY{p}{)}\PY{p}{,} \PY{k+kt}{c}\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{4}\PY{p}{,}\PY{l+m}{4}\PY{p}{)}\PY{p}{,} \PY{k+kt}{c}\PY{p}{(}\PY{l+m}{2}\PY{p}{,}\PY{l+m}{7}\PY{p}{,}\PY{l+m}{4}\PY{p}{)}\PY{p}{,} \PY{k+kt}{c}\PY{p}{(}\PY{l+m}{2}\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{3}\PY{p}{)}\PY{p}{,} \PY{k+kt}{c}\PY{p}{(}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{8}\PY{p}{,}\PY{l+m}{2}\PY{p}{)}\PY{p}{,} 
+                              \PY{k+kt}{c}\PY{p}{(}\PY{l+m}{4}\PY{p}{,}\PY{l+m}{6}\PY{p}{,}\PY{l+m}{5}\PY{p}{)}\PY{p}{,} \PY{k+kt}{c}\PY{p}{(}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{8}\PY{p}{,}\PY{l+m}{2}\PY{p}{)}\PY{p}{,} \PY{k+kt}{c}\PY{p}{(}\PY{l+m}{6}\PY{p}{,}\PY{l+m}{8}\PY{p}{,}\PY{l+m}{2}\PY{p}{)}\PY{p}{,} \PY{k+kt}{c}\PY{p}{(}\PY{l+m}{7}\PY{p}{,}\PY{l+m}{9}\PY{p}{,}\PY{l+m}{0}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{8}\PY{p}{,}\PY{l+m}{9}\PY{p}{,}\PY{l+m}{0}\PY{p}{)}\PY{p}{)}
+         
+         n \PY{o}{\PYZlt{}\PYZhy{}} \PY{l+m}{9}
+         z \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{length}\PY{p}{(}precedencia\PY{p}{)}
+         inicio\PYZus{}cedo \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{rep}\PY{p}{(}\PY{l+m}{0}\PY{p}{,}n\PY{p}{)}
+         
+         \PY{k+kr}{for}\PY{p}{(}i \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}n\PY{p}{)}\PY{p}{\PYZob{}}
+             \PY{k+kr}{for}\PY{p}{(}j \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}z\PY{p}{)}\PY{p}{\PYZob{}}
+                 \PY{k+kr}{if}\PY{p}{(} i \PY{o}{==} precedencia\PY{p}{[[}j\PY{p}{]]}\PY{p}{[}\PY{l+m}{2}\PY{p}{]}\PY{p}{)}\PY{p}{\PYZob{}}
+                     item \PY{o}{\PYZlt{}\PYZhy{}} precedencia\PY{p}{[[}j\PY{p}{]]}\PY{p}{[}\PY{l+m}{1}\PY{p}{]}
+                     \PY{k+kr}{if}\PY{p}{(}inicio\PYZus{}cedo\PY{p}{[[}i\PY{p}{]]} \PY{o}{\PYZlt{}=} inicio\PYZus{}cedo\PY{p}{[[}item\PY{p}{]]} \PY{o}{+} precedencia\PY{p}{[[}item\PY{p}{]]}\PY{p}{[}\PY{l+m}{3}\PY{p}{]}\PY{p}{)}\PY{p}{\PYZob{}}
+                         inicio\PYZus{}cedo\PY{p}{[[}i\PY{p}{]]} \PY{o}{\PYZlt{}\PYZhy{}} inicio\PYZus{}cedo\PY{p}{[[}item\PY{p}{]]} \PY{o}{+} precedencia\PY{p}{[[}item\PY{p}{]]}\PY{p}{[}\PY{l+m}{3}\PY{p}{]}
+                     \PY{p}{\PYZcb{}}
+                 \PY{p}{\PYZcb{}}
+             
+             \PY{p}{\PYZcb{}}
+         \PY{p}{\PYZcb{}}
+         
+         inicio\PYZus{}tarde \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{rep}\PY{p}{(}inicio\PYZus{}cedo\PY{p}{[[}n\PY{p}{]]}\PY{p}{,}n\PY{p}{)} 
+         
+         \PY{k+kr}{for}\PY{p}{(}i \PY{k+kr}{in} n\PY{o}{:}\PY{l+m}{1}\PY{p}{)}\PY{p}{\PYZob{}}
+             \PY{k+kr}{for}\PY{p}{(}j \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}z\PY{p}{)}\PY{p}{\PYZob{}}
+                 \PY{k+kr}{if}\PY{p}{(} i \PY{o}{==} precedencia\PY{p}{[[}j\PY{p}{]]}\PY{p}{[}\PY{l+m}{1}\PY{p}{]}\PY{p}{)}\PY{p}{\PYZob{}}
+                     item \PY{o}{\PYZlt{}\PYZhy{}} precedencia\PY{p}{[[}j\PY{p}{]]}\PY{p}{[}\PY{l+m}{2}\PY{p}{]}
+                     \PY{k+kr}{if}\PY{p}{(}inicio\PYZus{}tarde\PY{p}{[[}i\PY{p}{]]} \PY{o}{\PYZgt{}=} inicio\PYZus{}tarde\PY{p}{[[}item\PY{p}{]]} \PY{o}{\PYZhy{}} precedencia\PY{p}{[[}i\PY{p}{]]}\PY{p}{[}\PY{l+m}{3}\PY{p}{]}\PY{p}{)}\PY{p}{\PYZob{}}
+                         inicio\PYZus{}tarde\PY{p}{[[}i\PY{p}{]]} \PY{o}{\PYZlt{}\PYZhy{}} inicio\PYZus{}tarde\PY{p}{[[}item\PY{p}{]]} \PY{o}{\PYZhy{}} precedencia\PY{p}{[[}i\PY{p}{]]}\PY{p}{[}\PY{l+m}{3}\PY{p}{]}
+                     \PY{p}{\PYZcb{}}
+                 \PY{p}{\PYZcb{}}
+             
+             \PY{p}{\PYZcb{}}
+         \PY{p}{\PYZcb{}}
+         
+         inicio\PYZus{}cedo 
+         inicio\PYZus{}tarde
+\end{Verbatim}
 
+
+    \begin{enumerate*}
+\item 0
+\item 2
+\item 2
+\item 2
+\item 8
+\item 6
+\item 8
+\item 11
+\item 13
+\end{enumerate*}
+
+
+    
+    \begin{enumerate*}
+\item 0
+\item 2
+\item 7
+\item 5
+\item 8
+\item 9
+\item 8
+\item 11
+\item 13
+\end{enumerate*}
+
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}128}]:} agendamento \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
+          varia \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kr}{function}\PY{p}{(}inicio\PY{p}{,} cedo\PY{p}{,}tarde\PY{p}{,}pos\PY{p}{)}\PY{p}{\PYZob{}}
+              \PY{k+kr}{for}\PY{p}{(}i \PY{k+kr}{in} cedo\PY{p}{[[}pos\PY{p}{]]}\PY{o}{:}tarde\PY{p}{[[}pos\PY{p}{]]}\PY{p}{)}\PY{p}{\PYZob{}}
+                  inicio\PY{p}{[[}pos\PY{p}{]]} \PY{o}{\PYZlt{}\PYZhy{}} i
+                  agendamento \PY{o}{\PYZlt{}\PYZlt{}\PYZhy{}} \PY{k+kp}{rbind}\PY{p}{(}agendamento\PY{p}{,}inicio\PY{p}{)}
+              \PY{p}{\PYZcb{}}
+              
+              
+          \PY{p}{\PYZcb{}}
+          inicio \PY{o}{\PYZlt{}\PYZhy{}} inicio\PYZus{}cedo
+          varia\PY{p}{(}inicio\PY{p}{,} inicio\PYZus{}cedo\PY{p}{,} inicio\PYZus{}tarde\PY{p}{,}\PY{l+m}{4}\PY{p}{)}      
+          
+          n \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{length}\PY{p}{(}agendamento\PY{p}{)}\PY{o}{/}\PY{k+kp}{length}\PY{p}{(}inicio\PY{p}{)}
+          
+          
+          \PY{k+kr}{for}\PY{p}{(} g \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}\PY{k+kp}{length}\PY{p}{(}inicio\PY{p}{)}\PY{p}{)}\PY{p}{\PYZob{}}
+              
+          \PY{k+kr}{for}\PY{p}{(}a \PY{k+kr}{in} g\PY{o}{:}n\PY{p}{)}\PY{p}{\PYZob{}}
+           varia\PY{p}{(}agendamento\PY{p}{[}a\PY{p}{,}\PY{p}{]}\PY{p}{,} inicio\PYZus{}cedo\PY{p}{,} inicio\PYZus{}tarde\PY{p}{,}a\PY{p}{)}
+              
+          \PY{p}{\PYZcb{}}
+              \PY{p}{\PYZcb{}}
+          
+          agendamento
+\end{Verbatim}
+
+
+    \begin{tabular}{r|lllllllll}
+	inicio & 0  & 2  & 2  & 2  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 3  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 4  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 5  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 2  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 3  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 4  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 3  & 4  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 4  & 4  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 5  & 4  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 6  & 4  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 7  & 4  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 2  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 3  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 4  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 5  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 3  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 4  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 3  & 4  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 4  & 4  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 5  & 4  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 6  & 4  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 7  & 4  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 2  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 3  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 4  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 5  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 4  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 3  & 4  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 4  & 4  & 8  & 6  & 8  & 11 & 13\\
+	... & ... & ... & ... & ... & ... & ... & ... & ... & ...\\
+	inicio & 0  & 2  & 2  & 3  & 8  & 8  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 3  & 8  & 9  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 2  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 2  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 3  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 4  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 5  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 3  & 4  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 4  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 3  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 3  & 8  & 7  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 3  & 8  & 8  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 3  & 8  & 9  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 2  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 2  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 3  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 4  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 5  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 4  & 4  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 3  & 4  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 4  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 3  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 3  & 8  & 7  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 3  & 8  & 8  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 3  & 8  & 9  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 2  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 2  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 3  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 4  & 8  & 6  & 8  & 11 & 13\\
+	inicio & 0  & 2  & 2  & 5  & 8  & 6  & 8  & 11 & 13\\
+\end{tabular}
+
+
+    
     2- Observe os dados sobre o projeto de uma obra mostrado nas tabela 3.
 Calcule:
 
@@ -504,22 +703,9 @@ J & Limpeza Local & H,I & 10 & 10 & 12 & 360 & 450 & 540\tabularnewline
 Tabela 3 - Atividades
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}60}]:} g2 \PY{o}{\PYZlt{}\PYZhy{}} graph\PY{p}{(} edges\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{start\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{a\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{start\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{b\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{start\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{c\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{c\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{d\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{b\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{e\PYZsq{}}\PY{p}{,}
+{\color{incolor}In [{\color{incolor}10}]:} g2 \PY{o}{\PYZlt{}\PYZhy{}} graph\PY{p}{(} edges\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{start\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{a\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{start\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{b\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{start\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{c\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{c\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{d\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{b\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{e\PYZsq{}}\PY{p}{,}
                               \PY{l+s}{\PYZsq{}}\PY{l+s}{d\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{e\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{e\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{f\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{e\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{g\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{f\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{h\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{g\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{h\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{f\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{i\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{h\PYZsq{}}\PY{p}{,}
                               \PY{l+s}{\PYZsq{}}\PY{l+s}{j\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{i\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{j\PYZsq{}}\PY{p}{)} \PY{p}{)}
-         plot\PY{p}{(}g2\PY{p}{)}
-\end{Verbatim}
-
-
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_21_0.png}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}59}]:} g2 \PY{o}{\PYZlt{}\PYZhy{}} graph\PY{p}{(} edges\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{start\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{a\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{start\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{b\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{a\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{c\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{b\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{c\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{c\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{d\PYZsq{}}\PY{p}{,}
-                              \PY{l+s}{\PYZsq{}}\PY{l+s}{b\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{e\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{d\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{e\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{e\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{f\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{e\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{g\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{f\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{h\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{g\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{h\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{f\PYZsq{}}\PY{p}{,}
-                              \PY{l+s}{\PYZsq{}}\PY{l+s}{i\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{h\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{j\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{i\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{j\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{j\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{end\PYZsq{}}\PY{p}{)} \PY{p}{)}
          plot\PY{p}{(}g2\PY{p}{)}
 \end{Verbatim}
 
@@ -529,10 +715,23 @@ Tabela 3 - Atividades
     \end{center}
     { \hspace*{\fill} \\}
     
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}11}]:} g2 \PY{o}{\PYZlt{}\PYZhy{}} graph\PY{p}{(} edges\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{start\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{a\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{start\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{b\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{a\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{c\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{b\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{c\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{c\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{d\PYZsq{}}\PY{p}{,}
+                              \PY{l+s}{\PYZsq{}}\PY{l+s}{b\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{e\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{d\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{e\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{e\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{f\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{e\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{g\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{f\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{h\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{g\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{h\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{f\PYZsq{}}\PY{p}{,}
+                              \PY{l+s}{\PYZsq{}}\PY{l+s}{i\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{h\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{j\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{i\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{j\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{j\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{end\PYZsq{}}\PY{p}{)} \PY{p}{)}
+         plot\PY{p}{(}g2\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_23_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
     • Obtenha as aproximações para o risco de custo e de prazo da obra
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}81}]:} custo \PY{o}{\PYZlt{}\PYZhy{}} \PY{p}{(}rtriangle\PY{p}{(}\PY{l+m}{10000}\PY{p}{,}\PY{l+m}{300}\PY{p}{,}\PY{l+m}{600}\PY{p}{,}\PY{l+m}{450}\PY{p}{)}\PY{o}{+} 
+{\color{incolor}In [{\color{incolor}12}]:} custo \PY{o}{\PYZlt{}\PYZhy{}} \PY{p}{(}rtriangle\PY{p}{(}\PY{l+m}{10000}\PY{p}{,}\PY{l+m}{300}\PY{p}{,}\PY{l+m}{600}\PY{p}{,}\PY{l+m}{450}\PY{p}{)}\PY{o}{+} 
                    rtriangle\PY{p}{(}\PY{l+m}{10000}\PY{p}{,}\PY{l+m}{480}\PY{p}{,}\PY{l+m}{720}\PY{p}{,}\PY{l+m}{600}\PY{p}{)}\PY{o}{+} 
                    rtriangle\PY{p}{(}\PY{l+m}{10000}\PY{p}{,}\PY{l+m}{3750}\PY{p}{,}\PY{l+m}{5250}\PY{p}{,}\PY{l+m}{4500}\PY{p}{)}\PY{o}{+} 
                    rtriangle\PY{p}{(}\PY{l+m}{10000}\PY{p}{,}\PY{l+m}{8400}\PY{p}{,}\PY{l+m}{10800}\PY{p}{,}\PY{l+m}{9600}\PY{p}{)}\PY{o}{+} 
@@ -547,16 +746,16 @@ Tabela 3 - Atividades
 \end{Verbatim}
 
 
-    469137.333291898
+    469074.644877677
 
     
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_24_1.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_25_1.png}
     \end{center}
     { \hspace*{\fill} \\}
     
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}19}]:} resposta\PYZus{}final \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}13}]:} resposta\PYZus{}final \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
          \PY{k+kr}{for}\PY{p}{(} h \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{1000}\PY{p}{)}\PY{p}{\PYZob{}}
          precedencia \PY{o}{\PYZlt{}\PYZhy{}}  \PY{k+kt}{list}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{start\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{A\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{2}\PY{p}{,}\PY{l+m}{18}\PY{p}{,}\PY{l+m}{4}\PY{p}{)}\PY{p}{)}\PY{p}{,}
                               \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{start\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{B\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{19}\PY{p}{,}\PY{l+m}{9}\PY{p}{)}\PY{p}{)}\PY{p}{,}
@@ -579,21 +778,34 @@ Tabela 3 - Atividades
 \end{Verbatim}
 
 
-    213.036607108275
+    \begin{Verbatim}[commandchars=\\\{\}]
+[1] "-start-B-E-F-H-J"
+[1] "-start-B-E-F-I-J"
+[1] "-start-C-D-E-F-I-J"
+[1] "-start-B-E-F-I-J"
+[1] "-start-C-D-E-F-I-J"
+[1] "-start-C-D-E-F-I-J"
+[1] "-start-C-D-E-F-I-J"
+[1] "-start-C-D-E-F-I-J"
+[1] "-start-C-D-E-F-I-J"
+
+    \end{Verbatim}
+
+    213.00974275867
 
     
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}20}]:} plot\PY{p}{(}density\PY{p}{(}resposta\PYZus{}final\PY{p}{)}\PY{p}{,} col\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{red\PYZdq{}}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}14}]:} plot\PY{p}{(}density\PY{p}{(}resposta\PYZus{}final\PY{p}{)}\PY{p}{,} col\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{red\PYZdq{}}\PY{p}{)}
 \end{Verbatim}
 
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_26_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_27_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}69}]:} resposta\PYZus{}final \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}15}]:} resposta\PYZus{}final \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
          \PY{k+kr}{for}\PY{p}{(} h \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{1000}\PY{p}{)}\PY{p}{\PYZob{}}
          precedencia \PY{o}{\PYZlt{}\PYZhy{}}  \PY{k+kt}{list}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{start\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{A\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{2}\PY{p}{,}\PY{l+m}{18}\PY{p}{,}\PY{l+m}{4}\PY{p}{)}\PY{p}{)}\PY{p}{,}
                               \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{start\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{B\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{19}\PY{p}{,}\PY{l+m}{9}\PY{p}{)}\PY{p}{)}\PY{p}{,}
@@ -617,14 +829,23 @@ Tabela 3 - Atividades
 \end{Verbatim}
 
 
-    225.193428261673
+    \begin{Verbatim}[commandchars=\\\{\}]
+[1] "-start-B-C-D-E-F-I-J"
+[1] "-start-B-C-D-E-F-I-J"
+[1] "-start-A-C-D-E-F-I-J"
+[1] "-start-B-C-D-E-F-I-J"
+[1] "-start-B-C-D-E-F-I-J"
+
+    \end{Verbatim}
+
+    224.77359454236
 
     
     • Obtenha uma estimativa das probabilidades das atividades pertencerem
 ao caminho crítico
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}82}]:} resposta\PYZus{}final \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}16}]:} resposta\PYZus{}final \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
          caminho \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{p}{)}
          \PY{k+kr}{for}\PY{p}{(} h \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{10000}\PY{p}{)}\PY{p}{\PYZob{}}
          precedencia \PY{o}{\PYZlt{}\PYZhy{}}  \PY{k+kt}{list}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{start\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{A\PYZdq{}}\PY{p}{,}rtriangle\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{2}\PY{p}{,}\PY{l+m}{18}\PY{p}{,}\PY{l+m}{4}\PY{p}{)}\PY{p}{)}\PY{p}{,}
@@ -651,11 +872,16 @@ ao caminho crítico
 \end{Verbatim}
 
 
-    224.97739494658
+    \begin{Verbatim}[commandchars=\\\{\}]
+[1] "-start-A-C-D-E-F-I-J"
+
+    \end{Verbatim}
+
+    224.807260112853
 
     
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_29_1.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_30_2.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -663,17 +889,29 @@ ao caminho crítico
 custo da obra.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}83}]:} plot\PY{p}{(}custo\PY{p}{,}resposta\PYZus{}final\PY{p}{,} main\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{plot\PYZdq{}}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}17}]:} cor\PY{p}{(}custo\PY{p}{,}resposta\PYZus{}final\PY{p}{)}
+\end{Verbatim}
+
+
+    -0.00639471054887277
+
+    
+    A correlação entre custo e prazo é praticamente nula, indicando que,
+neste modelo, uma variação no prazo não contribui para a variação do
+custo.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}18}]:} plot\PY{p}{(}custo\PY{p}{,}resposta\PYZus{}final\PY{p}{,} main\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{plot\PYZdq{}}\PY{p}{)}
 \end{Verbatim}
 
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_31_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_34_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}84}]:} df \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{data.frame}\PY{p}{(}custo\PY{p}{,}resposta\PYZus{}final\PY{p}{)}
+{\color{incolor}In [{\color{incolor}19}]:} df \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{data.frame}\PY{p}{(}custo\PY{p}{,}resposta\PYZus{}final\PY{p}{)}
          qplot\PY{p}{(}custo\PY{p}{,}resposta\PYZus{}final\PY{p}{,}data\PY{o}{=}df\PY{p}{,} geom\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{bin2d\PYZsq{}}\PY{p}{)}
 \end{Verbatim}
 
@@ -681,7 +919,7 @@ custo da obra.
     
     
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_32_1.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_35_1.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -721,55 +959,55 @@ Atividade & Predecessor & Duração & NPV\tabularnewline
 \end{longtable}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}228}]:} g3 \PY{o}{\PYZlt{}\PYZhy{}} graph\PY{p}{(}edges\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{start=1\PYZsq{}}\PY{p}{,}\PY{l+m}{2}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{start=1\PYZsq{}}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{start=1\PYZsq{}}\PY{p}{,}\PY{l+m}{4}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{6}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{7}\PY{p}{,}
-                               \PY{l+m}{4}\PY{p}{,}\PY{l+m}{8}\PY{p}{,}\PY{l+m}{7}\PY{p}{,}\PY{l+m}{8}\PY{p}{,}\PY{l+m}{2}\PY{p}{,}\PY{l+m}{9}\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{10}\PY{p}{,}\PY{l+m}{7}\PY{p}{,}\PY{l+m}{11}\PY{p}{,}
-                               \PY{l+m}{6}\PY{p}{,}\PY{l+m}{12}\PY{p}{,}\PY{l+m}{10}\PY{p}{,}\PY{l+m}{12}\PY{p}{,}\PY{l+m}{11}\PY{p}{,}\PY{l+m}{12}\PY{p}{,}\PY{l+m}{8}\PY{p}{,}\PY{l+m}{13}\PY{p}{,}\PY{l+m}{12}\PY{p}{,}\PY{l+m}{13}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{end=14\PYZsq{}}\PY{p}{,}\PY{l+m}{13}\PY{p}{,}\PY{l+m}{9}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{end=14\PYZsq{}}\PY{p}{)} \PY{p}{)}
-          plot\PY{p}{(}g3\PY{p}{)}
+{\color{incolor}In [{\color{incolor}20}]:} g3 \PY{o}{\PYZlt{}\PYZhy{}} graph\PY{p}{(}edges\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{start=1\PYZsq{}}\PY{p}{,}\PY{l+m}{2}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{start=1\PYZsq{}}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{start=1\PYZsq{}}\PY{p}{,}\PY{l+m}{4}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{6}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{7}\PY{p}{,}
+                              \PY{l+m}{4}\PY{p}{,}\PY{l+m}{8}\PY{p}{,}\PY{l+m}{7}\PY{p}{,}\PY{l+m}{8}\PY{p}{,}\PY{l+m}{2}\PY{p}{,}\PY{l+m}{9}\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{10}\PY{p}{,}\PY{l+m}{7}\PY{p}{,}\PY{l+m}{11}\PY{p}{,}
+                              \PY{l+m}{6}\PY{p}{,}\PY{l+m}{12}\PY{p}{,}\PY{l+m}{10}\PY{p}{,}\PY{l+m}{12}\PY{p}{,}\PY{l+m}{11}\PY{p}{,}\PY{l+m}{12}\PY{p}{,}\PY{l+m}{8}\PY{p}{,}\PY{l+m}{13}\PY{p}{,}\PY{l+m}{12}\PY{p}{,}\PY{l+m}{13}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{end=14\PYZsq{}}\PY{p}{,}\PY{l+m}{13}\PY{p}{,}\PY{l+m}{9}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{end=14\PYZsq{}}\PY{p}{)} \PY{p}{)}
+         plot\PY{p}{(}g3\PY{p}{)}
 \end{Verbatim}
 
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_35_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_38_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}229}]:} n \PY{o}{\PYZlt{}\PYZhy{}} \PY{l+m}{14}
-          duracao\PYZus{}max \PY{o}{\PYZlt{}\PYZhy{}} \PY{l+m}{44}
-          duracao \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{l+m}{0}\PY{p}{,}\PY{l+m}{6}\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{6}\PY{p}{,}\PY{l+m}{2}\PY{p}{,}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{4}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{2}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{0}\PY{p}{)}
-          valor \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{l+m}{0}\PY{p}{,}\PY{l+m}{\PYZhy{}140}\PY{p}{,}\PY{l+m}{318}\PY{p}{,}\PY{l+m}{312}\PY{p}{,}\PY{l+m}{\PYZhy{}329}\PY{p}{,}\PY{l+m}{153}\PY{p}{,}\PY{l+m}{193}\PY{p}{,}\PY{l+m}{361}\PY{p}{,}\PY{l+m}{24}\PY{p}{,}\PY{l+m}{33}\PY{p}{,}\PY{l+m}{387}\PY{p}{,}\PY{l+m}{\PYZhy{}386}\PY{p}{,}\PY{l+m}{171}\PY{p}{,}\PY{l+m}{0}\PY{p}{)}
-          precedencia \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{list}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{2}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{3}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{4}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{2}\PY{p}{,}\PY{l+m}{9}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{5}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{6}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{7}\PY{p}{)}\PY{p}{,}
-                              \PY{k+kt}{c}\PY{p}{(}\PY{l+m}{4}\PY{p}{,}\PY{l+m}{8}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{10}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{6}\PY{p}{,}\PY{l+m}{12}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{7}\PY{p}{,}\PY{l+m}{8}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{7}\PY{p}{,}\PY{l+m}{11}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{8}\PY{p}{,}\PY{l+m}{13}\PY{p}{)}\PY{p}{,}
-                              \PY{k+kt}{c}\PY{p}{(}\PY{l+m}{9}\PY{p}{,}\PY{l+m}{14}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{10}\PY{p}{,}\PY{l+m}{12}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{11}\PY{p}{,}\PY{l+m}{12}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{12}\PY{p}{,}\PY{l+m}{13}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{13}\PY{p}{,}\PY{l+m}{14}\PY{p}{)}\PY{p}{)}
-          z \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{length}\PY{p}{(}precedencia\PY{p}{)}
-          inicio\PYZus{}cedo \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{rep}\PY{p}{(}\PY{l+m}{0}\PY{p}{,}\PY{l+m}{14}\PY{p}{)}
-          inicio\PYZus{}tarde \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{rep}\PY{p}{(}duracao\PYZus{}max\PY{p}{,}\PY{l+m}{14}\PY{p}{)} 
-          \PY{k+kr}{for}\PY{p}{(}i \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}n\PY{p}{)}\PY{p}{\PYZob{}}
-              \PY{k+kr}{for}\PY{p}{(}j \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}z\PY{p}{)}\PY{p}{\PYZob{}}
-                  \PY{k+kr}{if}\PY{p}{(} i \PY{o}{==} precedencia\PY{p}{[[}j\PY{p}{]]}\PY{p}{[}\PY{l+m}{2}\PY{p}{]}\PY{p}{)}\PY{p}{\PYZob{}}
-                      item \PY{o}{\PYZlt{}\PYZhy{}} precedencia\PY{p}{[[}j\PY{p}{]]}\PY{p}{[}\PY{l+m}{1}\PY{p}{]}
-                      \PY{k+kr}{if}\PY{p}{(}inicio\PYZus{}cedo\PY{p}{[[}i\PY{p}{]]} \PY{o}{\PYZlt{}=} inicio\PYZus{}cedo\PY{p}{[[}item\PY{p}{]]} \PY{o}{+} duracao\PY{p}{[[}item\PY{p}{]]}\PY{p}{)}\PY{p}{\PYZob{}}
-                          inicio\PYZus{}cedo\PY{p}{[[}i\PY{p}{]]} \PY{o}{\PYZlt{}\PYZhy{}} inicio\PYZus{}cedo\PY{p}{[[}item\PY{p}{]]} \PY{o}{+} duracao\PY{p}{[[}item\PY{p}{]]}
-                      \PY{p}{\PYZcb{}}
-                  \PY{p}{\PYZcb{}}
-              
-              \PY{p}{\PYZcb{}}
-          \PY{p}{\PYZcb{}}
-          
-          \PY{k+kr}{for}\PY{p}{(}i \PY{k+kr}{in} n\PY{o}{:}\PY{l+m}{1}\PY{p}{)}\PY{p}{\PYZob{}}
-              \PY{k+kr}{for}\PY{p}{(}j \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}z\PY{p}{)}\PY{p}{\PYZob{}}
-                  \PY{k+kr}{if}\PY{p}{(} i \PY{o}{==} precedencia\PY{p}{[[}j\PY{p}{]]}\PY{p}{[}\PY{l+m}{1}\PY{p}{]}\PY{p}{)}\PY{p}{\PYZob{}}
-                      item \PY{o}{\PYZlt{}\PYZhy{}} precedencia\PY{p}{[[}j\PY{p}{]]}\PY{p}{[}\PY{l+m}{2}\PY{p}{]}
-                      \PY{k+kr}{if}\PY{p}{(}inicio\PYZus{}tarde\PY{p}{[[}i\PY{p}{]]} \PY{o}{\PYZgt{}=} inicio\PYZus{}tarde\PY{p}{[[}item\PY{p}{]]} \PY{o}{\PYZhy{}} duracao\PY{p}{[[}i\PY{p}{]]}\PY{p}{)}\PY{p}{\PYZob{}}
-                          inicio\PYZus{}tarde\PY{p}{[[}i\PY{p}{]]} \PY{o}{\PYZlt{}\PYZhy{}} inicio\PYZus{}tarde\PY{p}{[[}item\PY{p}{]]} \PY{o}{\PYZhy{}} duracao\PY{p}{[[}i\PY{p}{]]}
-                      \PY{p}{\PYZcb{}}
-                  \PY{p}{\PYZcb{}}
-              
-              \PY{p}{\PYZcb{}}
-          \PY{p}{\PYZcb{}}
-          
-          inicio\PYZus{}cedo 
-          inicio\PYZus{}tarde
+{\color{incolor}In [{\color{incolor}21}]:} n \PY{o}{\PYZlt{}\PYZhy{}} \PY{l+m}{14}
+         duracao\PYZus{}max \PY{o}{\PYZlt{}\PYZhy{}} \PY{l+m}{44}
+         duracao \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{l+m}{0}\PY{p}{,}\PY{l+m}{6}\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{6}\PY{p}{,}\PY{l+m}{2}\PY{p}{,}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{4}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{2}\PY{p}{,}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{0}\PY{p}{)}
+         valor \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{l+m}{0}\PY{p}{,}\PY{l+m}{\PYZhy{}140}\PY{p}{,}\PY{l+m}{318}\PY{p}{,}\PY{l+m}{312}\PY{p}{,}\PY{l+m}{\PYZhy{}329}\PY{p}{,}\PY{l+m}{153}\PY{p}{,}\PY{l+m}{193}\PY{p}{,}\PY{l+m}{361}\PY{p}{,}\PY{l+m}{24}\PY{p}{,}\PY{l+m}{33}\PY{p}{,}\PY{l+m}{387}\PY{p}{,}\PY{l+m}{\PYZhy{}386}\PY{p}{,}\PY{l+m}{171}\PY{p}{,}\PY{l+m}{0}\PY{p}{)}
+         precedencia \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{list}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{2}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{3}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{4}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{2}\PY{p}{,}\PY{l+m}{9}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{5}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{6}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{7}\PY{p}{)}\PY{p}{,}
+                             \PY{k+kt}{c}\PY{p}{(}\PY{l+m}{4}\PY{p}{,}\PY{l+m}{8}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{5}\PY{p}{,}\PY{l+m}{10}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{6}\PY{p}{,}\PY{l+m}{12}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{7}\PY{p}{,}\PY{l+m}{8}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{7}\PY{p}{,}\PY{l+m}{11}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{8}\PY{p}{,}\PY{l+m}{13}\PY{p}{)}\PY{p}{,}
+                             \PY{k+kt}{c}\PY{p}{(}\PY{l+m}{9}\PY{p}{,}\PY{l+m}{14}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{10}\PY{p}{,}\PY{l+m}{12}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{11}\PY{p}{,}\PY{l+m}{12}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{12}\PY{p}{,}\PY{l+m}{13}\PY{p}{)}\PY{p}{,}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{13}\PY{p}{,}\PY{l+m}{14}\PY{p}{)}\PY{p}{)}
+         z \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{length}\PY{p}{(}precedencia\PY{p}{)}
+         inicio\PYZus{}cedo \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{rep}\PY{p}{(}\PY{l+m}{0}\PY{p}{,}\PY{l+m}{14}\PY{p}{)}
+         inicio\PYZus{}tarde \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{rep}\PY{p}{(}duracao\PYZus{}max\PY{p}{,}\PY{l+m}{14}\PY{p}{)} 
+         \PY{k+kr}{for}\PY{p}{(}i \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}n\PY{p}{)}\PY{p}{\PYZob{}}
+             \PY{k+kr}{for}\PY{p}{(}j \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}z\PY{p}{)}\PY{p}{\PYZob{}}
+                 \PY{k+kr}{if}\PY{p}{(} i \PY{o}{==} precedencia\PY{p}{[[}j\PY{p}{]]}\PY{p}{[}\PY{l+m}{2}\PY{p}{]}\PY{p}{)}\PY{p}{\PYZob{}}
+                     item \PY{o}{\PYZlt{}\PYZhy{}} precedencia\PY{p}{[[}j\PY{p}{]]}\PY{p}{[}\PY{l+m}{1}\PY{p}{]}
+                     \PY{k+kr}{if}\PY{p}{(}inicio\PYZus{}cedo\PY{p}{[[}i\PY{p}{]]} \PY{o}{\PYZlt{}=} inicio\PYZus{}cedo\PY{p}{[[}item\PY{p}{]]} \PY{o}{+} duracao\PY{p}{[[}item\PY{p}{]]}\PY{p}{)}\PY{p}{\PYZob{}}
+                         inicio\PYZus{}cedo\PY{p}{[[}i\PY{p}{]]} \PY{o}{\PYZlt{}\PYZhy{}} inicio\PYZus{}cedo\PY{p}{[[}item\PY{p}{]]} \PY{o}{+} duracao\PY{p}{[[}item\PY{p}{]]}
+                     \PY{p}{\PYZcb{}}
+                 \PY{p}{\PYZcb{}}
+             
+             \PY{p}{\PYZcb{}}
+         \PY{p}{\PYZcb{}}
+         
+         \PY{k+kr}{for}\PY{p}{(}i \PY{k+kr}{in} n\PY{o}{:}\PY{l+m}{1}\PY{p}{)}\PY{p}{\PYZob{}}
+             \PY{k+kr}{for}\PY{p}{(}j \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}z\PY{p}{)}\PY{p}{\PYZob{}}
+                 \PY{k+kr}{if}\PY{p}{(} i \PY{o}{==} precedencia\PY{p}{[[}j\PY{p}{]]}\PY{p}{[}\PY{l+m}{1}\PY{p}{]}\PY{p}{)}\PY{p}{\PYZob{}}
+                     item \PY{o}{\PYZlt{}\PYZhy{}} precedencia\PY{p}{[[}j\PY{p}{]]}\PY{p}{[}\PY{l+m}{2}\PY{p}{]}
+                     \PY{k+kr}{if}\PY{p}{(}inicio\PYZus{}tarde\PY{p}{[[}i\PY{p}{]]} \PY{o}{\PYZgt{}=} inicio\PYZus{}tarde\PY{p}{[[}item\PY{p}{]]} \PY{o}{\PYZhy{}} duracao\PY{p}{[[}i\PY{p}{]]}\PY{p}{)}\PY{p}{\PYZob{}}
+                         inicio\PYZus{}tarde\PY{p}{[[}i\PY{p}{]]} \PY{o}{\PYZlt{}\PYZhy{}} inicio\PYZus{}tarde\PY{p}{[[}item\PY{p}{]]} \PY{o}{\PYZhy{}} duracao\PY{p}{[[}i\PY{p}{]]}
+                     \PY{p}{\PYZcb{}}
+                 \PY{p}{\PYZcb{}}
+             
+             \PY{p}{\PYZcb{}}
+         \PY{p}{\PYZcb{}}
+         
+         inicio\PYZus{}cedo 
+         inicio\PYZus{}tarde
 \end{Verbatim}
 
 
@@ -812,77 +1050,358 @@ Atividade & Predecessor & Duração & NPV\tabularnewline
 
     
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}230}]:} valida \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kr}{function}\PY{p}{(}inicio\PY{p}{,} precedencia\PY{p}{,} duracao\PY{p}{,} prazo\PY{p}{)}\PY{p}{\PYZob{}}
-              z \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{length}\PY{p}{(}precedencia\PY{p}{)}
-              n \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{length}\PY{p}{(}inicio\PY{p}{)}
-              \PY{k+kr}{for}\PY{p}{(}i \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}n\PY{p}{)}\PY{p}{\PYZob{}}
-                  \PY{k+kr}{if}\PY{p}{(}inicio\PY{p}{[[}i\PY{p}{]]} \PY{o}{+} duracao\PY{p}{[[}i\PY{p}{]]} \PY{o}{\PYZgt{}} prazo\PY{p}{)} \PY{p}{\PYZob{}}
-                      \PY{k+kr}{return}\PY{p}{(}\PY{l+m}{0}\PY{p}{)}
-                  \PY{p}{\PYZcb{}}
-              \PY{p}{\PYZcb{}}
-              
-              \PY{k+kr}{for}\PY{p}{(}i \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}z\PY{p}{)}\PY{p}{\PYZob{}}
-                  \PY{k+kr}{if}\PY{p}{(}inicio\PY{p}{[[}precedencia\PY{p}{[[}i\PY{p}{]]}\PY{p}{[}\PY{l+m}{2}\PY{p}{]]}\PY{p}{]} \PY{o}{\PYZlt{}} inicio\PY{p}{[[}precedencia\PY{p}{[[}i\PY{p}{]]}\PY{p}{[}\PY{l+m}{1}\PY{p}{]]}\PY{p}{]} \PY{o}{+} 
-                     duracao\PY{p}{[[}precedencia\PY{p}{[[}i\PY{p}{]]}\PY{p}{[}\PY{l+m}{1}\PY{p}{]]}\PY{p}{]}\PY{p}{)}\PY{p}{\PYZob{}}
-                      \PY{k+kr}{return}\PY{p}{(}\PY{l+m}{0}\PY{p}{)}
-                  \PY{p}{\PYZcb{}}
-              \PY{p}{\PYZcb{}}
-              \PY{k+kr}{return}\PY{p}{(}\PY{l+m}{1}\PY{p}{)}
-          \PY{p}{\PYZcb{}}
+{\color{incolor}In [{\color{incolor}22}]:} valida \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kr}{function}\PY{p}{(}inicio\PY{p}{,} precedencia\PY{p}{,} duracao\PY{p}{,} prazo\PY{p}{)}\PY{p}{\PYZob{}}
+             z \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{length}\PY{p}{(}precedencia\PY{p}{)}
+             n \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{length}\PY{p}{(}inicio\PY{p}{)}
+             \PY{k+kr}{for}\PY{p}{(}i \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}n\PY{p}{)}\PY{p}{\PYZob{}}
+                 \PY{k+kr}{if}\PY{p}{(}inicio\PY{p}{[[}i\PY{p}{]]} \PY{o}{+} duracao\PY{p}{[[}i\PY{p}{]]} \PY{o}{\PYZgt{}} prazo\PY{p}{)} \PY{p}{\PYZob{}}
+                     \PY{k+kr}{return}\PY{p}{(}\PY{l+m}{0}\PY{p}{)}
+                 \PY{p}{\PYZcb{}}
+             \PY{p}{\PYZcb{}}
+             
+             \PY{k+kr}{for}\PY{p}{(}i \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}z\PY{p}{)}\PY{p}{\PYZob{}}
+                 \PY{k+kr}{if}\PY{p}{(}inicio\PY{p}{[[}precedencia\PY{p}{[[}i\PY{p}{]]}\PY{p}{[}\PY{l+m}{2}\PY{p}{]]}\PY{p}{]} \PY{o}{\PYZlt{}} inicio\PY{p}{[[}precedencia\PY{p}{[[}i\PY{p}{]]}\PY{p}{[}\PY{l+m}{1}\PY{p}{]]}\PY{p}{]} \PY{o}{+} 
+                    duracao\PY{p}{[[}precedencia\PY{p}{[[}i\PY{p}{]]}\PY{p}{[}\PY{l+m}{1}\PY{p}{]]}\PY{p}{]}\PY{p}{)}\PY{p}{\PYZob{}}
+                     \PY{k+kr}{return}\PY{p}{(}\PY{l+m}{0}\PY{p}{)}
+                 \PY{p}{\PYZcb{}}
+             \PY{p}{\PYZcb{}}
+             \PY{k+kr}{return}\PY{p}{(}\PY{l+m}{1}\PY{p}{)}
+         \PY{p}{\PYZcb{}}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}231}]:} npv \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kr}{function}\PY{p}{(}inicio\PY{p}{,} valor\PY{p}{,}taxa\PY{p}{)}\PY{p}{\PYZob{}}
-              npv0 \PY{o}{\PYZlt{}\PYZhy{}} \PY{l+m}{0}
-              n \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{length}\PY{p}{(}inicio\PY{p}{)}
-              
-              \PY{k+kr}{for}\PY{p}{(}i \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}n\PY{p}{)}\PY{p}{\PYZob{}}
-                  npv0 \PY{o}{\PYZlt{}\PYZhy{}} npv0 \PY{o}{+} valor\PY{p}{[[}i\PY{p}{]]} \PY{o}{*} \PY{p}{(}\PY{l+m}{1} \PY{o}{\PYZhy{}} taxa\PY{p}{)}\PY{o}{\PYZca{}}inicio\PY{p}{[[}i\PY{p}{]]}
-              \PY{p}{\PYZcb{}}
-              npv0
-          \PY{p}{\PYZcb{}}
+{\color{incolor}In [{\color{incolor}23}]:} npv \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kr}{function}\PY{p}{(}inicio\PY{p}{,} valor\PY{p}{,}taxa\PY{p}{)}\PY{p}{\PYZob{}}
+             npv0 \PY{o}{\PYZlt{}\PYZhy{}} \PY{l+m}{0}
+             n \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{length}\PY{p}{(}inicio\PY{p}{)}
+             
+             \PY{k+kr}{for}\PY{p}{(}i \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}n\PY{p}{)}\PY{p}{\PYZob{}}
+                 npv0 \PY{o}{\PYZlt{}\PYZhy{}} npv0 \PY{o}{+} valor\PY{p}{[[}i\PY{p}{]]} \PY{o}{*} \PY{p}{(}\PY{l+m}{1} \PY{o}{\PYZhy{}} taxa\PY{p}{)}\PY{o}{\PYZca{}}\PY{p}{(}inicio\PY{p}{[[}i\PY{p}{]]} \PY{o}{+} duracao\PY{p}{[[}i\PY{p}{]]}\PY{p}{)}
+             \PY{p}{\PYZcb{}}
+             npv0
+         \PY{p}{\PYZcb{}}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}232}]:} adia \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kr}{function}\PY{p}{(}inicio\PY{p}{,}duracao\PY{p}{,}precedencia\PY{p}{)}\PY{p}{\PYZob{}}
-              n \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{length}\PY{p}{(}inicio\PY{p}{)}
-              z \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{length}\PY{p}{(}precedencia\PY{p}{)}
-              \PY{k+kr}{for}\PY{p}{(}j \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}z\PY{p}{)}\PY{p}{\PYZob{}}
-                  \PY{k+kr}{if}\PY{p}{(} inicio\PY{p}{[[}precedencia\PY{p}{[[}j\PY{p}{]]}\PY{p}{[}\PY{l+m}{1}\PY{p}{]]}\PY{p}{]} \PY{o}{+} 
-                     duracao\PY{p}{[[}precedencia\PY{p}{[[}j\PY{p}{]]}\PY{p}{[}\PY{l+m}{1}\PY{p}{]]}\PY{p}{]} \PY{o}{\PYZgt{}}  inicio\PY{p}{[[}precedencia\PY{p}{[[}j\PY{p}{]]}\PY{p}{[}\PY{l+m}{2}\PY{p}{]]}\PY{p}{]}\PY{p}{)}\PY{p}{\PYZob{}}
-                      inicio\PY{p}{[[}precedencia\PY{p}{[[}j\PY{p}{]]}\PY{p}{[}\PY{l+m}{2}\PY{p}{]]}\PY{p}{]} \PY{o}{\PYZlt{}\PYZhy{}} inicio\PY{p}{[[}precedencia\PY{p}{[[}j\PY{p}{]]}\PY{p}{[}\PY{l+m}{1}\PY{p}{]]}\PY{p}{]} \PY{o}{+}
-                      duracao\PY{p}{[[}precedencia\PY{p}{[[}j\PY{p}{]]}\PY{p}{[}\PY{l+m}{1}\PY{p}{]]}\PY{p}{]}
-                      
-                      \PY{k+kr}{if}\PY{p}{(}valida\PY{p}{(}inicio\PY{p}{,} precedencia\PY{p}{,} duracao\PY{p}{,} duracao\PYZus{}max\PY{p}{)}\PY{p}{)}\PY{p}{\PYZob{}}
-                          \PY{k+kr}{return}\PY{p}{(}inicio\PY{p}{)}  
-                      \PY{p}{\PYZcb{}}   
-                  \PY{p}{\PYZcb{}}
-              \PY{p}{\PYZcb{}}
-              \PY{k+kr}{if}\PY{p}{(}valida\PY{p}{(}inicio\PY{p}{,} precedencia\PY{p}{,} duracao\PY{p}{,} duracao\PYZus{}max\PY{p}{)}\PY{p}{)}\PY{p}{\PYZob{}}
-                  \PY{k+kr}{return}\PY{p}{(}inicio\PY{p}{)}  
-              \PY{p}{\PYZcb{}}
-          \PY{p}{\PYZcb{}}
+{\color{incolor}In [{\color{incolor}24}]:} adia \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kr}{function}\PY{p}{(}inicio\PY{p}{,}duracao\PY{p}{,}precedencia\PY{p}{)}\PY{p}{\PYZob{}}
+             n \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{length}\PY{p}{(}inicio\PY{p}{)}
+             z \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{length}\PY{p}{(}precedencia\PY{p}{)}
+             \PY{k+kr}{for}\PY{p}{(}j \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}z\PY{p}{)}\PY{p}{\PYZob{}}
+                 \PY{k+kr}{if}\PY{p}{(} inicio\PY{p}{[[}precedencia\PY{p}{[[}j\PY{p}{]]}\PY{p}{[}\PY{l+m}{1}\PY{p}{]]}\PY{p}{]} \PY{o}{+} 
+                    duracao\PY{p}{[[}precedencia\PY{p}{[[}j\PY{p}{]]}\PY{p}{[}\PY{l+m}{1}\PY{p}{]]}\PY{p}{]} \PY{o}{\PYZgt{}}  inicio\PY{p}{[[}precedencia\PY{p}{[[}j\PY{p}{]]}\PY{p}{[}\PY{l+m}{2}\PY{p}{]]}\PY{p}{]}\PY{p}{)}\PY{p}{\PYZob{}}
+                     inicio\PY{p}{[[}precedencia\PY{p}{[[}j\PY{p}{]]}\PY{p}{[}\PY{l+m}{2}\PY{p}{]]}\PY{p}{]} \PY{o}{\PYZlt{}\PYZhy{}} inicio\PY{p}{[[}precedencia\PY{p}{[[}j\PY{p}{]]}\PY{p}{[}\PY{l+m}{1}\PY{p}{]]}\PY{p}{]} \PY{o}{+}
+                     duracao\PY{p}{[[}precedencia\PY{p}{[[}j\PY{p}{]]}\PY{p}{[}\PY{l+m}{1}\PY{p}{]]}\PY{p}{]}
+                     
+                     \PY{k+kr}{if}\PY{p}{(}valida\PY{p}{(}inicio\PY{p}{,} precedencia\PY{p}{,} duracao\PY{p}{,} duracao\PYZus{}max\PY{p}{)}\PY{p}{)}\PY{p}{\PYZob{}}
+                         
+                         \PY{k+kr}{return}\PY{p}{(}inicio\PY{p}{)}  
+                     \PY{p}{\PYZcb{}}   
+                 \PY{p}{\PYZcb{}}
+             \PY{p}{\PYZcb{}}
+             \PY{k+kr}{if}\PY{p}{(}valida\PY{p}{(}inicio\PY{p}{,} precedencia\PY{p}{,} duracao\PY{p}{,} duracao\PYZus{}max\PY{p}{)}\PY{p}{)}\PY{p}{\PYZob{}}
+                 \PY{k+kr}{return}\PY{p}{(}inicio\PY{p}{)}  
+             \PY{p}{\PYZcb{}}
+         \PY{p}{\PYZcb{}}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}233}]:} inicio \PY{o}{\PYZlt{}\PYZhy{}} inicio\PYZus{}cedo
-          \PY{k+kr}{for}\PY{p}{(}i \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}n\PY{p}{)}\PY{p}{\PYZob{}}
-              novo \PY{o}{\PYZlt{}\PYZhy{}} inicio
-              novo\PY{p}{[[}i\PY{p}{]]} \PY{o}{=} inicio\PYZus{}tarde\PY{p}{[[}i\PY{p}{]]}
-              novo \PY{o}{\PYZlt{}\PYZhy{}} adia\PY{p}{(}novo\PY{p}{,}duracao\PY{p}{,}precedencia\PY{p}{)}
-              \PY{k+kr}{if}\PY{p}{(}npv\PY{p}{(}novo\PY{p}{,} valor\PY{p}{,}\PY{l+m}{0.01}\PY{p}{)} \PY{o}{\PYZgt{}} npv\PY{p}{(}inicio\PY{p}{,} valor\PY{p}{,}\PY{l+m}{0.01}\PY{p}{)} \PY{p}{)}\PY{p}{\PYZob{}}
-                  \PY{k+kr}{if}\PY{p}{(}valida\PY{p}{(}novo\PY{p}{,} precedencia\PY{p}{,} duracao\PY{p}{,} duracao\PYZus{}max\PY{p}{)}\PY{p}{)}\PY{p}{\PYZob{}}
-                      inicio \PY{o}{\PYZlt{}\PYZhy{}} novo
-                  \PY{p}{\PYZcb{}}
-              \PY{p}{\PYZcb{}}
-          \PY{p}{\PYZcb{}}
-          inicio
-          npv\PY{p}{(}inicio\PY{p}{,} valor\PY{p}{,}\PY{l+m}{0.01}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}25}]:} inicio \PY{o}{\PYZlt{}\PYZhy{}} inicio\PYZus{}cedo
+         \PY{k+kr}{for}\PY{p}{(}i \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}n\PY{p}{)}\PY{p}{\PYZob{}}
+             novo \PY{o}{\PYZlt{}\PYZhy{}} inicio
+             v \PY{o}{\PYZlt{}\PYZhy{}} inicio\PYZus{}tarde\PY{p}{[[}i\PY{p}{]]} \PY{o}{\PYZhy{}} novo\PY{p}{[[}i\PY{p}{]]}
+             \PY{k+kr}{for}\PY{p}{(}u \PY{k+kr}{in} novo\PY{p}{[[}i\PY{p}{]]}\PY{o}{:}inicio\PYZus{}tarde\PY{p}{[[}i\PY{p}{]]}\PY{p}{)}\PY{p}{\PYZob{}}
+             novo\PY{p}{[[}i\PY{p}{]]} \PY{o}{\PYZlt{}\PYZhy{}} u
+             novo \PY{o}{\PYZlt{}\PYZhy{}} adia\PY{p}{(}novo\PY{p}{,}duracao\PY{p}{,}precedencia\PY{p}{)}
+                         \PY{k+kr}{if}\PY{p}{(}valida\PY{p}{(}novo\PY{p}{,} precedencia\PY{p}{,} duracao\PY{p}{,} duracao\PYZus{}max\PY{p}{)}\PY{p}{)}\PY{p}{\PYZob{}}
+                     \PY{k+kp}{print}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{k+kp}{round}\PY{p}{(}novo\PY{p}{)}\PY{p}{,} \PY{k+kp}{round}\PY{p}{(}npv\PY{p}{(}novo\PY{p}{,} valor\PY{p}{,}\PY{l+m}{0.01}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+                 \PY{p}{\PYZcb{}}
+             \PY{k+kr}{if}\PY{p}{(}npv\PY{p}{(}novo\PY{p}{,} valor\PY{p}{,}\PY{l+m}{0.01}\PY{p}{)} \PY{o}{\PYZgt{}} npv\PY{p}{(}inicio\PY{p}{,} valor\PY{p}{,}\PY{l+m}{0.01}\PY{p}{)} \PY{p}{)}\PY{p}{\PYZob{}}
+                 \PY{k+kr}{if}\PY{p}{(}valida\PY{p}{(}novo\PY{p}{,} precedencia\PY{p}{,} duracao\PY{p}{,} duracao\PYZus{}max\PY{p}{)}\PY{p}{)}\PY{p}{\PYZob{}}
+                     inicio \PY{o}{\PYZlt{}\PYZhy{}} novo
+                 \PY{p}{\PYZcb{}}
+             \PY{p}{\PYZcb{}}
+         \PY{p}{\PYZcb{}}
+             \PY{p}{\PYZcb{}}
+         inicio
+         npv\PY{p}{(}inicio\PY{p}{,} valor\PY{p}{,}\PY{l+m}{0.01}\PY{p}{)}
 \end{Verbatim}
 
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+ [1]    0    0    0    0    5    5    5    7    6    6    7   11   14   19 1025
+ [1]    1    1    1    1    6    6    6    8    7    7    8   12   15   20 1015
+ [1]    2    2    2    2    7    7    7    9    8    8    9   13   16   21 1005
+ [1]   3   3   3   3   8   8   8  10   9   9  10  14  17  22 994
+ [1]   4   4   4   4   9   9   9  11  10  10  11  15  18  23 985
+ [1]   5   5   5   5  10  10  10  12  11  11  12  16  19  24 975
+ [1]   6   6   6   6  11  11  11  13  12  12  13  17  20  25 965
+ [1]   7   7   7   7  12  12  12  14  13  13  14  18  21  26 955
+ [1]   8   8   8   8  13  13  13  15  14  14  15  19  22  27 946
+ [1]   9   9   9   9  14  14  14  16  15  15  16  20  23  28 936
+ [1]  10  10  10  10  15  15  15  17  16  16  17  21  24  29 927
+ [1]  11  11  11  11  16  16  16  18  17  17  18  22  25  30 918
+ [1]  12  12  12  12  17  17  17  19  18  18  19  23  26  31 908
+ [1]  13  13  13  13  18  18  18  20  19  19  20  24  27  32 899
+ [1]  14  14  14  14  19  19  19  21  20  20  21  25  28  33 890
+ [1]  15  15  15  15  20  20  20  22  21  21  22  26  29  34 881
+ [1]  16  16  16  16  21  21  21  23  22  22  23  27  30  35 873
+ [1]  17  17  17  17  22  22  22  24  23  23  24  28  31  36 864
+ [1]  18  18  18  18  23  23  23  25  24  24  25  29  32  37 855
+ [1]  19  19  19  19  24  24  24  26  25  25  26  30  33  38 847
+ [1]  20  20  20  20  25  25  25  27  26  26  27  31  34  39 838
+ [1]  21  21  21  21  26  26  26  28  27  27  28  32  35  40 830
+ [1]  22  22  22  22  27  27  27  29  28  28  29  33  36  41 822
+ [1]  23  23  23  23  28  28  28  30  29  29  30  34  37  42 813
+ [1]  24  24  24  24  29  29  29  31  30  30  31  35  38  43 805
+ [1]  25  25  25  25  30  30  30  32  31  31  32  36  39  44 797
+ [1]    0    0    0    0    5    5    5    7    6    6    7   11   14   19 1025
+ [1]    0    1    0    0    5    5    5    7    7    6    7   11   14   19 1026
+ [1]    0    2    0    0    5    5    5    7    8    6    7   11   14   19 1027
+ [1]    0    3    0    0    5    5    5    7    9    6    7   11   14   19 1028
+ [1]    0    4    0    0    5    5    5    7   10    6    7   11   14   19 1029
+ [1]    0    5    0    0    5    5    5    7   11    6    7   11   14   19 1030
+ [1]    0    6    0    0    5    5    5    7   12    6    7   11   14   19 1031
+ [1]    0    7    0    0    5    5    5    7   13    6    7   11   14   19 1032
+ [1]    0    8    0    0    5    5    5    7   14    6    7   11   14   19 1033
+ [1]    0    9    0    0    5    5    5    7   15    6    7   11   14   19 1034
+ [1]    0   10    0    0    5    5    5    7   16    6    7   11   14   20 1035
+ [1]    0   11    0    0    5    5    5    7   17    6    7   11   14   21 1036
+ [1]    0   12    0    0    5    5    5    7   18    6    7   11   14   22 1037
+ [1]    0   13    0    0    5    5    5    7   19    6    7   11   14   23 1038
+ [1]    0   14    0    0    5    5    5    7   20    6    7   11   14   24 1039
+ [1]    0   15    0    0    5    5    5    7   21    6    7   11   14   25 1040
+ [1]    0   16    0    0    5    5    5    7   22    6    7   11   14   26 1041
+ [1]    0   17    0    0    5    5    5    7   23    6    7   11   14   27 1042
+ [1]    0   18    0    0    5    5    5    7   24    6    7   11   14   28 1043
+ [1]    0   19    0    0    5    5    5    7   25    6    7   11   14   29 1044
+ [1]    0   20    0    0    5    5    5    7   26    6    7   11   14   30 1045
+ [1]    0   21    0    0    5    5    5    7   27    6    7   11   14   31 1046
+ [1]    0   22    0    0    5    5    5    7   28    6    7   11   14   32 1047
+ [1]    0   23    0    0    5    5    5    7   29    6    7   11   14   33 1048
+ [1]    0   24    0    0    5    5    5    7   30    6    7   11   14   34 1048
+ [1]    0   25    0    0    5    5    5    7   31    6    7   11   14   35 1049
+ [1]    0   26    0    0    5    5    5    7   32    6    7   11   14   36 1050
+ [1]    0   27    0    0    5    5    5    7   33    6    7   11   14   37 1051
+ [1]    0   28    0    0    5    5    5    7   34    6    7   11   14   38 1052
+ [1]    0   29    0    0    5    5    5    7   35    6    7   11   14   39 1053
+ [1]    0   30    0    0    5    5    5    7   36    6    7   11   14   40 1054
+ [1]    0   31    0    0    5    5    5    7   37    6    7   11   14   41 1054
+ [1]    0   32    0    0    5    5    5    7   38    6    7   11   14   42 1055
+ [1]    0   33    0    0    5    5    5    7   39    6    7   11   14   43 1056
+ [1]    0   34    0    0    5    5    5    7   40    6    7   11   14   44 1057
+ [1]    0   34    0    0    5    5    5    7   40    6    7   11   14   44 1057
+ [1]    0   34    1    0    6    6    6    8   40    7    8   12   15   44 1048
+ [1]    0   34    2    0    7    7    7    9   40    8    9   13   16   44 1040
+ [1]    0   34    3    0    8    8    8   10   40    9   10   14   17   44 1032
+ [1]    0   34    4    0    9    9    9   11   40   10   11   15   18   44 1024
+ [1]    0   34    5    0   10   10   10   12   40   11   12   16   19   44 1016
+ [1]    0   34    6    0   11   11   11   13   40   12   13   17   20   44 1008
+ [1]    0   34    7    0   12   12   12   14   40   13   14   18   21   44 1000
+ [1]   0  34   8   0  13  13  13  15  40  14  15  19  22  44 992
+ [1]   0  34   9   0  14  14  14  16  40  15  16  20  23  44 985
+ [1]   0  34  10   0  15  15  15  17  40  16  17  21  24  44 977
+ [1]   0  34  11   0  16  16  16  18  40  17  18  22  25  44 970
+ [1]   0  34  12   0  17  17  17  19  40  18  19  23  26  44 962
+ [1]   0  34  13   0  18  18  18  20  40  19  20  24  27  44 955
+ [1]   0  34  14   0  19  19  19  21  40  20  21  25  28  44 948
+ [1]   0  34  15   0  20  20  20  22  40  21  22  26  29  44 940
+ [1]   0  34  16   0  21  21  21  23  40  22  23  27  30  44 933
+ [1]   0  34  17   0  22  22  22  24  40  23  24  28  31  44 926
+ [1]   0  34  18   0  23  23  23  25  40  24  25  29  32  44 919
+ [1]   0  34  19   0  24  24  24  26  40  25  26  30  33  44 912
+ [1]   0  34  20   0  25  25  25  27  40  26  27  31  34  44 905
+ [1]   0  34  21   0  26  26  26  28  40  27  28  32  35  44 898
+ [1]   0  34  22   0  27  27  27  29  40  28  29  33  36  44 892
+ [1]   0  34  23   0  28  28  28  30  40  29  30  34  37  44 885
+ [1]   0  34  24   0  29  29  29  31  40  30  31  35  38  44 878
+ [1]   0  34  25   0  30  30  30  32  40  31  32  36  39  44 872
+ [1]    0   34    0    0    5    5    5    7   40    6    7   11   14   44 1057
+ [1]    0   34    0    1    5    5    5    7   40    6    7   11   14   44 1054
+ [1]    0   34    0    2    5    5    5    7   40    6    7   11   14   44 1051
+ [1]    0   34    0    3    5    5    5    7   40    6    7   11   14   44 1048
+ [1]    0   34    0    4    5    5    5    7   40    6    7   11   14   44 1045
+ [1]    0   34    0    5    5    5    5    8   40    6    7   11   14   44 1039
+ [1]    0   34    0    6    5    5    5    9   40    6    7   11   14   44 1032
+ [1]    0   34    0    7    5    5    5   10   40    6    7   11   14   44 1026
+ [1]    0   34    0    8    5    5    5   11   40    6    7   11   14   44 1020
+ [1]    0   34    0    9    5    5    5   12   40    6    7   11   14   44 1014
+ [1]    0   34    0   10    5    5    5   13   40    6    7   11   14   44 1008
+ [1]    0   34    0   11    5    5    5   14   40    6    7   11   15   44 1001
+ [1]   0  34   0  12   5   5   5  15  40   6   7  11  16  44 994
+ [1]   0  34   0  13   5   5   5  16  40   6   7  11  17  44 987
+ [1]   0  34   0  14   5   5   5  17  40   6   7  11  18  44 980
+ [1]   0  34   0  15   5   5   5  18  40   6   7  11  19  44 973
+ [1]   0  34   0  16   5   5   5  19  40   6   7  11  20  44 966
+ [1]   0  34   0  17   5   5   5  20  40   6   7  11  21  44 959
+ [1]   0  34   0  18   5   5   5  21  40   6   7  11  22  44 952
+ [1]   0  34   0  19   5   5   5  22  40   6   7  11  23  44 945
+ [1]   0  34   0  20   5   5   5  23  40   6   7  11  24  44 939
+ [1]   0  34   0  21   5   5   5  24  40   6   7  11  25  44 932
+ [1]   0  34   0  22   5   5   5  25  40   6   7  11  26  44 926
+ [1]   0  34   0  23   5   5   5  26  40   6   7  11  27  44 919
+ [1]   0  34   0  24   5   5   5  27  40   6   7  11  28  44 913
+ [1]   0  34   0  25   5   5   5  28  40   6   7  11  29  44 906
+ [1]   0  34   0  26   5   5   5  29  40   6   7  11  30  44 900
+ [1]   0  34   0  27   5   5   5  30  40   6   7  11  31  44 894
+ [1]   0  34   0  28   5   5   5  31  40   6   7  11  32  44 888
+ [1]   0  34   0  29   5   5   5  32  40   6   7  11  33  44 882
+ [1]   0  34   0  30   5   5   5  33  40   6   7  11  34  44 876
+ [1]   0  34   0  31   5   5   5  34  40   6   7  11  35  44 870
+ [1]   0  34   0  32   5   5   5  35  40   6   7  11  36  44 864
+ [1]   0  34   0  33   5   5   5  36  40   6   7  11  37  44 858
+ [1]   0  34   0  34   5   5   5  37  40   6   7  11  38  44 852
+ [1]   0  34   0  35   5   5   5  38  40   6   7  11  39  44 846
+ [1]    0   34    0    0    5    5    5    7   40    6    7   11   14   44 1057
+ [1]    0   34    0    0    6    5    5    7   40    7    7   11   14   44 1060
+ [1]    0   34    0    0    7    5    5    7   40    8    7   11   14   44 1062
+ [1]    0   34    0    0    8    5    5    7   40    9    7   12   15   44 1067
+ [1]    0   34    0    0    9    5    5    7   40   10    7   13   16   44 1072
+ [1]    0   34    0    0   10    5    5    7   40   11    7   14   17   44 1076
+ [1]    0   34    0    0   11    5    5    7   40   12    7   15   18   44 1081
+ [1]    0   34    0    0   12    5    5    7   40   13    7   16   19   44 1085
+ [1]    0   34    0    0   13    5    5    7   40   14    7   17   20   44 1090
+ [1]    0   34    0    0   14    5    5    7   40   15    7   18   21   44 1094
+ [1]    0   34    0    0   15    5    5    7   40   16    7   19   22   44 1098
+ [1]    0   34    0    0   16    5    5    7   40   17    7   20   23   44 1103
+ [1]    0   34    0    0   17    5    5    7   40   18    7   21   24   44 1107
+ [1]    0   34    0    0   18    5    5    7   40   19    7   22   25   44 1111
+ [1]    0   34    0    0   19    5    5    7   40   20    7   23   26   44 1116
+ [1]    0   34    0    0   20    5    5    7   40   21    7   24   27   44 1120
+ [1]    0   34    0    0   21    5    5    7   40   22    7   25   28   44 1124
+ [1]    0   34    0    0   22    5    5    7   40   23    7   26   29   44 1128
+ [1]    0   34    0    0   23    5    5    7   40   24    7   27   30   44 1132
+ [1]    0   34    0    0   24    5    5    7   40   25    7   28   31   44 1136
+ [1]    0   34    0    0   25    5    5    7   40   26    7   29   32   44 1140
+ [1]    0   34    0    0   26    5    5    7   40   27    7   30   33   44 1144
+ [1]    0   34    0    0   27    5    5    7   40   28    7   31   34   44 1148
+ [1]    0   34    0    0   28    5    5    7   40   29    7   32   35   44 1151
+ [1]    0   34    0    0   29    5    5    7   40   30    7   33   36   44 1155
+ [1]    0   34    0    0   30    5    5    7   40   31    7   34   37   44 1159
+ [1]    0   34    0    0   31    5    5    7   40   32    7   35   38   44 1163
+ [1]    0   34    0    0   32    5    5    7   40   33    7   36   39   44 1166
+ [1]    0   34    0    0   32    5    5    7   40   33    7   36   39   44 1166
+ [1]    0   34    0    0   32    6    5    7   40   33    7   36   39   44 1165
+ [1]    0   34    0    0   32    7    5    7   40   33    7   36   39   44 1164
+ [1]    0   34    0    0   32    8    5    7   40   33    7   36   39   44 1162
+ [1]    0   34    0    0   32    9    5    7   40   33    7   36   39   44 1161
+ [1]    0   34    0    0   32   10    5    7   40   33    7   36   39   44 1160
+ [1]    0   34    0    0   32   11    5    7   40   33    7   36   39   44 1158
+ [1]    0   34    0    0   32   12    5    7   40   33    7   36   39   44 1157
+ [1]    0   34    0    0   32   13    5    7   40   33    7   36   39   44 1156
+ [1]    0   34    0    0   32   14    5    7   40   33    7   36   39   44 1154
+ [1]    0   34    0    0   32   15    5    7   40   33    7   36   39   44 1153
+ [1]    0   34    0    0   32   16    5    7   40   33    7   36   39   44 1152
+ [1]    0   34    0    0   32   17    5    7   40   33    7   36   39   44 1151
+ [1]    0   34    0    0   32   18    5    7   40   33    7   36   39   44 1150
+ [1]    0   34    0    0   32   19    5    7   40   33    7   36   39   44 1148
+ [1]    0   34    0    0   32   20    5    7   40   33    7   36   39   44 1147
+ [1]    0   34    0    0   32   21    5    7   40   33    7   36   39   44 1146
+ [1]    0   34    0    0   32   22    5    7   40   33    7   36   39   44 1145
+ [1]    0   34    0    0   32   23    5    7   40   33    7   36   39   44 1144
+ [1]    0   34    0    0   32   24    5    7   40   33    7   36   39   44 1143
+ [1]    0   34    0    0   32   25    5    7   40   33    7   36   39   44 1141
+ [1]    0   34    0    0   32   26    5    7   40   33    7   36   39   44 1140
+ [1]    0   34    0    0   32   27    5    7   40   33    7   36   39   44 1139
+ [1]    0   34    0    0   32   28    5    7   40   33    7   36   39   44 1138
+ [1]    0   34    0    0   32   29    5    7   40   33    7   36   39   44 1137
+ [1]    0   34    0    0   32   30    5    7   40   33    7   36   39   44 1136
+ [1]    0   34    0    0   32    5    5    7   40   33    7   36   39   44 1166
+ [1]    0   34    0    0   32    5    6    8   40   33    8   36   39   44 1158
+ [1]    0   34    0    0   32    5    7    9   40   33    9   36   39   44 1149
+ [1]    0   34    0    0   32    5    8   10   40   33   10   36   39   44 1141
+ [1]    0   34    0    0   32    5    9   11   40   33   11   36   39   44 1132
+ [1]    0   34    0    0   32    5   10   12   40   33   12   36   39   44 1124
+ [1]    0   34    0    0   32    5   11   13   40   33   13   36   39   44 1116
+ [1]    0   34    0    0   32    5   12   14   40   33   14   36   39   44 1107
+ [1]    0   34    0    0   32    5   13   15   40   33   15   36   39   44 1099
+ [1]    0   34    0    0   32    5   14   16   40   33   16   36   39   44 1091
+ [1]    0   34    0    0   32    5   15   17   40   33   17   36   39   44 1083
+ [1]    0   34    0    0   32    5   16   18   40   33   18   36   39   44 1076
+ [1]    0   34    0    0   32    5   17   19   40   33   19   36   39   44 1068
+ [1]    0   34    0    0   32    5   18   20   40   33   20   36   39   44 1060
+ [1]    0   34    0    0   32    5   19   21   40   33   21   36   39   44 1053
+ [1]    0   34    0    0   32    5   20   22   40   33   22   36   39   44 1045
+ [1]    0   34    0    0   32    5   21   23   40   33   23   36   39   44 1038
+ [1]    0   34    0    0   32    5   22   24   40   33   24   36   39   44 1030
+ [1]    0   34    0    0   32    5   23   25   40   33   25   36   39   44 1023
+ [1]    0   34    0    0   32    5   24   26   40   33   26   36   39   44 1016
+ [1]    0   34    0    0   32    5   25   27   40   33   27   36   39   44 1009
+ [1]    0   34    0    0   32    5   26   28   40   33   28   36   39   44 1001
+ [1]   0  34   0   0  32   5  27  29  40  33  29  36  39  44 994
+ [1]   0  34   0   0  32   5  28  30  40  33  30  36  39  44 987
+ [1]   0  34   0   0  32   5  29  31  40  33  31  36  39  44 981
+ [1]   0  34   0   0  32   5  30  32  40  33  32  36  39  44 974
+ [1]   0  34   0   0  32   5  31  33  40  33  33  36  39  44 967
+ [1]   0  34   0   0  32   5  32  34  40  33  34  36  39  44 960
+ [1]    0   34    0    0   32    5    5    7   40   33    7   36   39   44 1166
+ [1]    0   34    0    0   32    5    5    8   40   33    7   36   39   44 1163
+ [1]    0   34    0    0   32    5    5    9   40   33    7   36   39   44 1160
+ [1]    0   34    0    0   32    5    5   10   40   33    7   36   39   44 1156
+ [1]    0   34    0    0   32    5    5   11   40   33    7   36   39   44 1153
+ [1]    0   34    0    0   32    5    5   12   40   33    7   36   39   44 1150
+ [1]    0   34    0    0   32    5    5   13   40   33    7   36   39   44 1147
+ [1]    0   34    0    0   32    5    5   14   40   33    7   36   39   44 1144
+ [1]    0   34    0    0   32    5    5   15   40   33    7   36   39   44 1141
+ [1]    0   34    0    0   32    5    5   16   40   33    7   36   39   44 1138
+ [1]    0   34    0    0   32    5    5   17   40   33    7   36   39   44 1134
+ [1]    0   34    0    0   32    5    5   18   40   33    7   36   39   44 1131
+ [1]    0   34    0    0   32    5    5   19   40   33    7   36   39   44 1128
+ [1]    0   34    0    0   32    5    5   20   40   33    7   36   39   44 1126
+ [1]    0   34    0    0   32    5    5   21   40   33    7   36   39   44 1123
+ [1]    0   34    0    0   32    5    5   22   40   33    7   36   39   44 1120
+ [1]    0   34    0    0   32    5    5   23   40   33    7   36   39   44 1117
+ [1]    0   34    0    0   32    5    5   24   40   33    7   36   39   44 1114
+ [1]    0   34    0    0   32    5    5   25   40   33    7   36   39   44 1111
+ [1]    0   34    0    0   32    5    5   26   40   33    7   36   39   44 1108
+ [1]    0   34    0    0   32    5    5   27   40   33    7   36   39   44 1106
+ [1]    0   34    0    0   32    5    5   28   40   33    7   36   39   44 1103
+ [1]    0   34    0    0   32    5    5   29   40   33    7   36   39   44 1100
+ [1]    0   34    0    0   32    5    5   30   40   33    7   36   39   44 1098
+ [1]    0   34    0    0   32    5    5   31   40   33    7   36   39   44 1095
+ [1]    0   34    0    0   32    5    5   32   40   33    7   36   39   44 1092
+ [1]    0   34    0    0   32    5    5   33   40   33    7   36   39   44 1090
+ [1]    0   34    0    0   32    5    5   34   40   33    7   36   39   44 1087
+ [1]    0   34    0    0   32    5    5   35   40   33    7   36   39   44 1085
+ [1]    0   34    0    0   32    5    5   36   40   33    7   36   39   44 1082
+ [1]    0   34    0    0   32    5    5   37   40   33    7   36   39   44 1080
+ [1]    0   34    0    0   32    5    5   38   40   33    7   36   39   44 1077
+ [1]    0   34    0    0   32    5    5    7   40   33    7   36   39   44 1166
+ [1]    0   34    0    0   32    5    5    7   40   33    7   36   39   44 1166
+ [1]    0   34    0    0   32    5    5    7   40   33    7   36   39   44 1166
+ [1]    0   34    0    0   32    5    5    7   40   33    8   36   39   44 1163
+ [1]    0   34    0    0   32    5    5    7   40   33    9   36   39   44 1159
+ [1]    0   34    0    0   32    5    5    7   40   33   10   36   39   44 1156
+ [1]    0   34    0    0   32    5    5    7   40   33   11   36   39   44 1152
+ [1]    0   34    0    0   32    5    5    7   40   33   12   36   39   44 1149
+ [1]    0   34    0    0   32    5    5    7   40   33   13   36   39   44 1146
+ [1]    0   34    0    0   32    5    5    7   40   33   14   36   39   44 1142
+ [1]    0   34    0    0   32    5    5    7   40   33   15   36   39   44 1139
+ [1]    0   34    0    0   32    5    5    7   40   33   16   36   39   44 1136
+ [1]    0   34    0    0   32    5    5    7   40   33   17   36   39   44 1133
+ [1]    0   34    0    0   32    5    5    7   40   33   18   36   39   44 1129
+ [1]    0   34    0    0   32    5    5    7   40   33   19   36   39   44 1126
+ [1]    0   34    0    0   32    5    5    7   40   33   20   36   39   44 1123
+ [1]    0   34    0    0   32    5    5    7   40   33   21   36   39   44 1120
+ [1]    0   34    0    0   32    5    5    7   40   33   22   36   39   44 1117
+ [1]    0   34    0    0   32    5    5    7   40   33   23   36   39   44 1114
+ [1]    0   34    0    0   32    5    5    7   40   33   24   36   39   44 1111
+ [1]    0   34    0    0   32    5    5    7   40   33   25   36   39   44 1108
+ [1]    0   34    0    0   32    5    5    7   40   33   26   36   39   44 1105
+ [1]    0   34    0    0   32    5    5    7   40   33   27   36   39   44 1102
+ [1]    0   34    0    0   32    5    5    7   40   33   28   36   39   44 1099
+ [1]    0   34    0    0   32    5    5    7   40   33   29   36   39   44 1096
+ [1]    0   34    0    0   32    5    5    7   40   33   30   36   39   44 1093
+ [1]    0   34    0    0   32    5    5    7   40   33   31   36   39   44 1091
+ [1]    0   34    0    0   32    5    5    7   40   33   32   36   39   44 1088
+ [1]    0   34    0    0   32    5    5    7   40   33   33   36   39   44 1085
+ [1]    0   34    0    0   32    5    5    7   40   33   34   36   39   44 1082
+ [1]    0   34    0    0   32    5    5    7   40   33    7   36   39   44 1166
+ [1]    0   34    0    0   32    5    5    7   40   33    7   36   39   44 1166
+ [1]    0   34    0    0   32    5    5    7   40   33    7   36   39   44 1166
+
+    \end{Verbatim}
 
     \begin{enumerate*}
 \item 0
@@ -903,7 +1422,7 @@ Atividade & Predecessor & Duração & NPV\tabularnewline
 
 
     
-    1204.70605015516
+    1166.33559262078
 
     
 
